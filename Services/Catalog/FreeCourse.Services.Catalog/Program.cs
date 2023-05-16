@@ -1,10 +1,15 @@
-﻿using FreeCourse.Services.Catalog.Settings;
-using Microsoft.Extensions.DependencyInjection;
+﻿using FreeCourse.Services.Catalog.Services;
+using FreeCourse.Services.Catalog.Services.Interfaces;
+using FreeCourse.Services.Catalog.Settings;
 using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+#region custom services
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+#endregion
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
