@@ -9,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 #region custom services
 builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<ICourseService, CourseService>();
 #endregion
 
 builder.Services.AddControllers();
