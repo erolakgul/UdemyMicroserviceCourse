@@ -1,5 +1,4 @@
 ﻿using FreeCourse.Services.Catalog.Dto;
-using FreeCourse.Services.Catalog.Model;
 using FreeCourse.Shared.Dtos;
 
 namespace FreeCourse.Services.Catalog.Services.Interfaces
@@ -8,7 +7,7 @@ namespace FreeCourse.Services.Catalog.Services.Interfaces
     {
         Task<Response<List<CategoryDto>>> GetAllAsync();
 
-        Task<Response<CategoryDto>> CreateAsync(Category category);
+        Task<Response<CategoryDto>> CreateAsync(CategoryCreateDto categoryCreateDto);
 
         Task<Response<CategoryDto>> GetByIdAsync(string id);
     }

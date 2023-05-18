@@ -41,4 +41,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+//app.MapGet("{area:exists}/{controller=Home}/{action=Index}/{id?}",() => "eee");
+//app.MapGet("/", () => "This is an endpoint created in ASP.NET 6");
+
 app.Run();

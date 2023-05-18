@@ -17,7 +17,7 @@ namespace FreeCourse.Services.Catalog.Controllers
         }
 
         [HttpGet]
-        [Route("/GetAll")]
+        [Route("GetAll/")]
         public async Task<IActionResult> GetAll()
         {
             var response = await _courseService.GetAllAsync();
@@ -26,7 +26,7 @@ namespace FreeCourse.Services.Catalog.Controllers
         }
 
         [HttpGet]
-        [Route("/GetById/{id}")]
+        [Route("GetById/{id}")]
         public async Task<IActionResult> GetById(string id)
         {
             var response = await _courseService.GetByIdAsync(id);
@@ -35,7 +35,7 @@ namespace FreeCourse.Services.Catalog.Controllers
         }
 
         [HttpGet]
-        [Route("/GetAllByUserId/{userId}")]
+        [Route("GetAllByUserId/{userId}")]
         public async Task<IActionResult> GetAllByUserId(string userId)
         {
             var response = await _courseService.GetAllByUserIdAsync(userId);
