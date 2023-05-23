@@ -2,7 +2,11 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using FreeCourse.IdentityServer.Data;
+using FreeCourse.IdentityServer.Models;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -37,22 +41,59 @@ namespace FreeCourse.IdentityServer
 
             try
             {
-                var seed = args.Contains("/seed");
-                if (seed)
-                {
-                    args = args.Except(new[] { "/seed" }).ToArray();
-                }
+                #region seed data kapatıldı
+                //var seed = args.Contains("/seed");
+                //if (seed)
+                //{
+                //    args = args.Except(new[] { "/seed" }).ToArray();
+                //}
 
                 var host = CreateHostBuilder(args).Build();
 
-                if (seed)
+                //if (seed)
+                //{
+                //    Log.Information("Seeding database...");
+                //    var config = host.Services.GetRequiredService<IConfiguration>();
+                //    var connectionString = config.GetConnectionString("DefaultConnection");
+                //    SeedData.EnsureSeedData(connectionString);
+                //    Log.Information("Done seeding database.");
+                //    return 0;
+                //} 
+                #endregion
+
+                // using işlemi bittikten sonra memory den düşmesi için scope açıyoruz
+                using (var scope = host.Services.CreateScope())
                 {
-                    Log.Information("Seeding database...");
-                    var config = host.Services.GetRequiredService<IConfiguration>();
-                    var connectionString = config.GetConnectionString("DefaultConnection");
-                    SeedData.EnsureSeedData(connectionString);
-                    Log.Information("Done seeding database.");
-                    return 0;
+                    var serviceProvider = scope.ServiceProvider;
+
+                    // mutlaka bu servisin olması gerekiyor
+                    var applicationDbContext = serviceProvider.GetRequiredService<ApplicationDbContext>();
+                    // db yoksa bekleyen migrationları alıp db ye uygular
+                    applicationDbContext.Database.Migrate();
+
+                    // bir kullanıcımız yoksa default bir kullanıcı oluşturuyoruz
+                    //ApplicationUser IdentityUser dan gerekli tüm property leri alıyor, 
+                    // eğer custom alanlar eklemek istersek kontrol için ApplicationUser class ı altına property leri tanımlayabiliriz
+                    var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+
+                    if (!userManager.Users.Any()) // hiç kullanıcı yoksa
+                    {
+                        userManager.CreateAsync(new ApplicationUser()
+                        {
+                            City = "İstanbul",
+                            Email = "erolakgul88@gmail.com",
+                            NormalizedEmail = "erolakgul88@gmail.com",
+                            EmailConfirmed = true,
+                            PhoneNumber = "05376023325",
+                            UserName = "EAKGUL",
+                            TwoFactorEnabled = false,
+                            NormalizedUserName = "EAKGUL",
+                            PhoneNumberConfirmed = true,
+                            PasswordHash = "Password12*"
+                        }).Wait();
+
+
+                    }
                 }
 
                 Log.Information("Starting host...");
