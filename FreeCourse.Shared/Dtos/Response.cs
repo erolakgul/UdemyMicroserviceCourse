@@ -1,6 +1,7 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
-namespace FreeCourse.Public.Shared.Dtos
+namespace FreeCourse.Shared.Dtos
 {
     public class Response<T>   // T yi kısıtlamıyoruz
     {

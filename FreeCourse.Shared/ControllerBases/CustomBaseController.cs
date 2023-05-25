@@ -1,7 +1,7 @@
-﻿using FreeCourse.Public.Shared.Dtos;
+﻿using FreeCourse.Shared.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FreeCourse.Public.Shared.ControllerBases
+namespace FreeCourse.Shared.ControllerBases
 {
     public class CustomBaseController : ControllerBase
     {
