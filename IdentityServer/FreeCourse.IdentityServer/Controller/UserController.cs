@@ -1,14 +1,19 @@
 ﻿using FreeCourse.IdentityServer.Dto;
 using FreeCourse.IdentityServer.Models;
 using FreeCourse.Shared.Dtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;
+using static IdentityServer4.IdentityServerConstants;
 
 namespace FreeCourse.IdentityServer.Controller
 {
-    [Route("api/[controller]")]
+    // identityserver acces token policy si
+    // dolayısıyla token içinde IdentityServerConstants.LocalApi.ScopeName i bekliyor olacak
+    [Authorize(LocalApi.PolicyName)] // AddLocalApiAuthentication service olması gereken policy i eşleyip bize bilgiyi dönecek,ok ise devam
+    [Route("api/[controller]/[action]")] // metot bazlı eşleşme olması için [action eklendi]
     [ApiController]
     public class UserController : ControllerBase
     {
