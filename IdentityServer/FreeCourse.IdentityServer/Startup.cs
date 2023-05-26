@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using FreeCourse.IdentityServer.Services;
 
 namespace FreeCourse.IdentityServer
 {
@@ -55,6 +56,10 @@ namespace FreeCourse.IdentityServer
                 .AddInMemoryApiScopes(Config.ApiScopes)
                 .AddInMemoryClients(Config.Clients)
                 .AddAspNetIdentity<ApplicationUser>();
+
+            // IResourceOwnerPasswordValidator interface i ile kontrolü sağlayacağımız
+            // ve resource owner credential akışı ile üreteceğimiz token ı tanımlıyoruz
+            builder.AddResourceOwnerValidator<IdentityResourceOwnerPasswordValidator>(); 
 
             // not recommended for production - you need to store your key material somewhere secure
             builder.AddDeveloperSigningCredential();
