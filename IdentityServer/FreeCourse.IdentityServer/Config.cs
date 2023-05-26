@@ -58,6 +58,7 @@ namespace FreeCourse.IdentityServer
         public static IEnumerable<Client> Clients =>
             new Client[]
             {
+                //ClientCredentials
                 new Client()
                 {
                     ClientName = "Asp.NetCore MVC", // merkezi bir üyelik sistemi kullansaydık, yani identityserver ın arayüzünü kullanarak token alınsaydı, her bir client için bir name tanımlyacaktık, fakat biz sadece endpointlerini kullanacağız
@@ -68,6 +69,7 @@ namespace FreeCourse.IdentityServer
 
                 },
         
+              //ResourceOwnerPassword
                new Client()
                 {
                     ClientName = "Asp.NetCore MVC", // merkezi bir üyelik sistemi kullansaydık, yani identityserver ın arayüzünü kullanarak token alınsaydı, her bir client için bir name tanımlyacaktık, fakat biz sadece endpointlerini kullanacağız
@@ -79,6 +81,7 @@ namespace FreeCourse.IdentityServer
                                        IdentityServerConstants.StandardScopes.Email, 
                                        IdentityServerConstants.StandardScopes.OpenId, 
                                        IdentityServerConstants.StandardScopes.Profile,
+                                       IdentityServerConstants.LocalApi.ScopeName,
                                        IdentityServerConstants.StandardScopes.OfflineAccess , // refresh token
                                      // kullanıcı ofline olsa bile elindeki refresh token ile tekrar bir istekte bulunup token alır
                                      // eğer refresh token yoksa, kullanıcıdan sürekli kullanıcı adı ve şifresiyle login olmasını bekleriz
