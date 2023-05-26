@@ -1,6 +1,8 @@
 ﻿using FreeCourse.Services.Catalog.Services;
 using FreeCourse.Services.Catalog.Services.Interfaces;
 using FreeCourse.Services.Catalog.Settings;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,7 +14,24 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ICourseService, CourseService>();
 #endregion
 
-builder.Services.AddControllers();
+#region  authentication işlemi için bir şema belirliyoruz
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(option =>
+{
+    option.Authority = builder.Configuration.GetValue<string>("IdentityServerURL");
+    option.Audience = "resource_catalog"; // identityserver config apiresources
+    option.RequireHttpsMetadata = false; // https kullanmadğımız için kapalı yapıyoruz
+});
+#endregion
+
+
+#region authorize parametreleri, tüm controller larda authorize attribute ü çalışması için
+builder.Services.AddControllers(opt =>
+{
+    opt.Filters.Add(new AuthorizeFilter() { });
+}); 
+#endregion
+
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -28,6 +47,7 @@ builder.Services.AddSingleton<ICustomDatabaseSettings>(sp =>
 });
 #endregion
 
+/***************************************************************************************/
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -36,6 +56,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

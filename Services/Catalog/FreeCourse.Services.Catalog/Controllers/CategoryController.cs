@@ -17,7 +17,7 @@ namespace FreeCourse.Services.Catalog.Controllers
         }
 
         [HttpGet]
-        [Route("GetAll/")]
+        [Route("GetAll")] // method isimsiz kullanılmak istenirse, http request e göre çalışması istenrise kapatılır
         public async Task<IActionResult> GetAll()
         {
             var response = await _categoryService.GetAllAsync();
@@ -25,7 +25,7 @@ namespace FreeCourse.Services.Catalog.Controllers
             return CreateActionResultInstance(response);
         }
 
-        [HttpGet]
+        [HttpGet] //("/{id}")
         [Route("GetById/{id}")]
         public async Task<IActionResult> GetById(string id)
         {
