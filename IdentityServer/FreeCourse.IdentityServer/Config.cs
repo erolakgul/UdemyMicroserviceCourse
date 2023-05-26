@@ -77,7 +77,7 @@ namespace FreeCourse.IdentityServer
                     ClientSecrets = {new Secret("secretKey".Sha256())}, //secretKey bilgisini veritabanında da tutabilirdik
                     AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,// refresh token a izin verir // token üretmede hangi yöntemi kullanacaksak onu belirtiyoruz
                     AllowOfflineAccess = true,
-                   AllowedScopes = {
+                    AllowedScopes = {
                                        IdentityServerConstants.StandardScopes.Email, 
                                        IdentityServerConstants.StandardScopes.OpenId, 
                                        IdentityServerConstants.StandardScopes.Profile,
