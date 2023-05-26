@@ -89,7 +89,6 @@ namespace FreeCourse.IdentityServer
                    ,RefreshTokenExpiration = TokenExpiration.Absolute // 61.ci gün ömrü dolsun diye
                    ,AbsoluteRefreshTokenLifetime = (int) (DateTime.Now.AddDays(60)-DateTime.Now).TotalSeconds // 60 gün
                    ,RefreshTokenUsage = TokenUsage.ReUse
-
                 },
 
                 //// m2m client credentials flow client
