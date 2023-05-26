@@ -2,7 +2,8 @@
   "profiles": {
     "SelfHost": {
       "commandName": "Project",
-      "launchBrowser": true,
+      //"launchBrowser": true,
+      "launchBrowser": false, // start aşamasında sayfa açılmasın
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
