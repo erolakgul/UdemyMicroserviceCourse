@@ -4,6 +4,7 @@
 
 using IdentityServer4;
 using IdentityServer4.Models;
+using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 
@@ -31,8 +32,15 @@ namespace FreeCourse.IdentityServer
         public static IEnumerable<IdentityResource> IdentityResources =>
                    new IdentityResource[]
                    {
-                //new IdentityResources.OpenId(),
-                //new IdentityResources.Profile(),
+                      //new IdentityResources.OpenId(),
+                      //new IdentityResources.Profile(),
+                      new IdentityResources.Email(),  // kullanıcının email ine erişebilsin
+                      new IdentityResources.OpenId(), // // bu parametreyi mutlaka alması lazım, openid protokolünün zorunlu kıldığı alan
+                      new IdentityResources.Profile(), // kullanıcının profil bilgilerine erişebilsin
+                      new IdentityResource(){
+                                             Name = "roles",DisplayName ="Roles",
+                                             Description = "User Roles", UserClaims = new [] {"role"} // role bilgisi de bu role isim claim e maplensin
+                                            }
                    };
 
         public static IEnumerable<ApiScope> ApiScopes =>
@@ -59,6 +67,31 @@ namespace FreeCourse.IdentityServer
                     AllowedScopes = { "catalog_fullpermission", "photo_stock_fullpermission" , IdentityServerConstants.LocalApi.ScopeName }  // hangi scope lara izin verilecekse onlar tanımlanır
 
                 },
+        
+               new Client()
+                {
+                    ClientName = "Asp.NetCore MVC", // merkezi bir üyelik sistemi kullansaydık, yani identityserver ın arayüzünü kullanarak token alınsaydı, her bir client için bir name tanımlyacaktık, fakat biz sadece endpointlerini kullanacağız
+                    ClientId = "WebMvcClientForUser",
+                    ClientSecrets = {new Secret("secretKey".Sha256())}, //secretKey bilgisini veritabanında da tutabilirdik
+                    AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,// refresh token a izin verir // token üretmede hangi yöntemi kullanacaksak onu belirtiyoruz
+                    AllowedScopes = {
+                                       IdentityServerConstants.StandardScopes.Email, 
+                                       IdentityServerConstants.StandardScopes.OpenId, 
+                                       IdentityServerConstants.StandardScopes.Profile,
+                                       IdentityServerConstants.StandardScopes.OfflineAccess , // refresh token
+                                     // kullanıcı ofline olsa bile elindeki refresh token ile tekrar bir istekte bulunup token alır
+                                     // eğer refresh token yoksa, kullanıcıdan sürekli kullanıcı adı ve şifresiyle login olmasını bekleriz
+                                     // access token ömrünü 1 saat,refresh token(cookie de tutulan) ömrünü ise ör 60 gün yapabiliriz
+                                     "roles" // identityresources ta tanımlanan key
+                                    }  // identityresource daki claim lerden hangilerine izin verilecekse onlar tanımlanır
+                                      ,
+                    AccessTokenLifetime = 1*60*60 // access token süresini 1 saat atadık
+                   ,RefreshTokenExpiration = TokenExpiration.Absolute // 61.ci gün ömrü dolsun diye
+                   ,AbsoluteRefreshTokenLifetime = (int) (DateTime.Now.AddDays(60)-DateTime.Now).TotalSeconds // 60 gün
+                   ,RefreshTokenUsage = TokenUsage.ReUse
+
+                },
+
                 //// m2m client credentials flow client
                 //new Client
                 //{
