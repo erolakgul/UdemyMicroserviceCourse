@@ -1,5 +1,5 @@
 Identity
         =             Port : 5001
 Services 
-        = Catalog API port : 5011
-        = 
+        = Catalog     port : 5011
+        = PhotoStock  port : 5012
