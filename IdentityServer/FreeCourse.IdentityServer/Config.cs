@@ -21,7 +21,7 @@ namespace FreeCourse.IdentityServer
                      {
                         Scopes = { "catalog_fullpermission" }
                      },
-                     new ApiResource("photostock_catalog")
+                     new ApiResource("photo_stock_catalog")
                      {
                         Scopes = { "photo_stock_fullpermission" }
                      },

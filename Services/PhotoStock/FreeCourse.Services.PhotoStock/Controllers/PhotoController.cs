@@ -18,7 +18,7 @@ namespace FreeCourse.Services.PhotoStock.Controllers
             if (photo != null && photo.Length > 0)
             {
                 // endpoint i çağıran client bize form ismini de göndermeli
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/photos", photo.Name);
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/photos", photo.FileName);
 
                 // fotoyu path e kaydet
                 #region stream nesnesini kullanım sonrası bellekten düşür
@@ -26,7 +26,7 @@ namespace FreeCourse.Services.PhotoStock.Controllers
                 await photo.CopyToAsync(stream, cancellationToken);
                 #endregion
 
-                PhotoDto photoDto = new() { Url = "photos/" + photo.Name };
+                PhotoDto photoDto = new() { Url = "photos/" + photo.FileName };
 
                 return CreateActionResultInstance(Response<PhotoDto>.Success(photoDto, 200));
             }
@@ -38,8 +38,8 @@ namespace FreeCourse.Services.PhotoStock.Controllers
         {
             var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/photos/", url);
 
-            // dosya varsa
-            if (System.IO.File.Exists(path))
+            // dosya yoksa
+            if (!System.IO.File.Exists(path))
                 return CreateActionResultInstance(Response<NoContent>.Fail("Photo not found", 404));
 
             System.IO.File.Delete(path);
