@@ -26,9 +26,7 @@ namespace FreeCourse.Services.PhotoStock.Controllers
                 await photo.CopyToAsync(stream, cancellationToken);
                 #endregion
 
-                var returnPath = "photos/" + photo.Name;
-
-                PhotoDto photoDto = new() { Url = returnPath };
+                PhotoDto photoDto = new() { Url = "photos/" + photo.Name };
 
                 return CreateActionResultInstance(Response<PhotoDto>.Success(photoDto, 200));
             }
