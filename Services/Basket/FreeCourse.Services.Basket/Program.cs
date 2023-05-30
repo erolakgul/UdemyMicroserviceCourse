@@ -1,4 +1,10 @@
+using FreeCourse.Services.Basket.Settings;
+
 var builder = WebApplication.CreateBuilder(args);
+
+#region configure appsettings
+builder.Services.Configure<RedisSettings>(builder.Configuration.GetSection("RedisSettings"));
+#endregion
 
 // Add services to the container.
 

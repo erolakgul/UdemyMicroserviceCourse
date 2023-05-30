@@ -3,3 +3,4 @@ Identity
 Services 
         = Catalog     port : 5011
         = PhotoStock  port : 5012
+        = Basket      port : 5013
