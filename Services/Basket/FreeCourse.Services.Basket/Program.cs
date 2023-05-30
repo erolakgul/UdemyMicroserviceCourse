@@ -1,4 +1,6 @@
+using FreeCourse.Services.Basket.Services;
 using FreeCourse.Services.Basket.Settings;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +8,15 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.Configure<RedisSettings>(builder.Configuration.GetSection("RedisSettings"));
 #endregion
 
+#region redis option pattern, uygulama çalýþýr çalýþmaz baðlantý kurmasý için
+builder.Services.AddSingleton<RedisService>(sp =>
+{
+    var redisService = sp.GetRequiredService<IOptions<RedisSettings>>().Value;
+    var redis = new RedisService(redisService.Host,redisService.Port);
+    redis.Connect();
+    return redis;
+});
+#endregion
 // Add services to the container.
 
 builder.Services.AddControllers();
