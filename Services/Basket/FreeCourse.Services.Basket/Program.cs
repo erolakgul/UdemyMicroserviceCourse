@@ -1,8 +1,17 @@
 using FreeCourse.Services.Basket.Services;
 using FreeCourse.Services.Basket.Settings;
+using FreeCourse.Shared.Services;
 using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
+
+#region httpcontext, shared teki SharedIdentityService i kullanabilmek için
+builder.Services.AddHttpContextAccessor();
+#endregion
+
+#region sharedclass tan kullanýcý id sini almak için di container a da ekliyoruz
+builder.Services.AddScoped<ISharedIdentityService, SharedIdentityService>();
+#endregion
 
 #region configure appsettings
 builder.Services.Configure<RedisSettings>(builder.Configuration.GetSection("RedisSettings"));
