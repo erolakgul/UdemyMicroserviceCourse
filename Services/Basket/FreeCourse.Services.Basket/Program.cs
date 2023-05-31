@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Options;
-using System.Runtime.InteropServices;
+using System.IdentityModel.Tokens.Jwt;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,6 +35,9 @@ builder.Services.AddSingleton<RedisService>(sp =>
 });
 #endregion
 
+#region jwt sub : nameidentifier map lemesini kaldýrmak için
+JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove("sub");
+#endregion
 
 #region  authentication iþlemi için bir þema belirliyoruz
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(option =>
@@ -44,7 +47,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     option.RequireHttpsMetadata = false; // https kullanmadðýmýz için kapalý yapýyoruz
 });
 #endregion
-
 
 #region authorize parametreleri, tüm controller larýn tepesinde authorize attribute ü çalýþmasý için
 // burada global tanýmlamada, farklý olarak : authenticated olmuþ bir user gerekli diyoruz
