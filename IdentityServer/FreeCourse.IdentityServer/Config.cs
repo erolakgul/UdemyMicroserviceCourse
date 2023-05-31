@@ -17,13 +17,17 @@ namespace FreeCourse.IdentityServer
                    {
                      //new IdentityResources.OpenId(),
                      //new IdentityResources.Profile(),
-                     new ApiResource("resource_catalog")  // bu aud için bir veya daha fazla ApiScopes tanımlanır
+                     new ApiResource("credential_catalog")  // bu aud için bir veya daha fazla ApiScopes tanımlanır
                      {
                         Scopes = { "catalog_fullpermission" }
                      },
-                     new ApiResource("photo_stock_catalog")
+                     new ApiResource("credential_photo_stock")
                      {
                         Scopes = { "photo_stock_fullpermission" }
+                     },
+                      new ApiResource("resource_basket")
+                     {
+                        Scopes = { "basket_fullpermission" }
                      },
                       new ApiResource(IdentityServerConstants.LocalApi.ScopeName),
                    };
@@ -52,6 +56,8 @@ namespace FreeCourse.IdentityServer
 
                 new ApiScope("photo_stock_fullpermission","Full Access for Photo Api"),
 
+                new ApiScope("basket_fullpermission","Full Access for Basket Api"),
+
                 new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
             };
 
@@ -77,7 +83,7 @@ namespace FreeCourse.IdentityServer
                     ClientSecrets = {new Secret("secretKey".Sha256())}, //secretKey bilgisini veritabanında da tutabilirdik
                     AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,// refresh token a izin verir // token üretmede hangi yöntemi kullanacaksak onu belirtiyoruz
                     AllowOfflineAccess = true,
-                    AllowedScopes = {
+                    AllowedScopes = {  "basket_fullpermission",
                                        IdentityServerConstants.StandardScopes.Email, 
                                        IdentityServerConstants.StandardScopes.OpenId, 
                                        IdentityServerConstants.StandardScopes.Profile,

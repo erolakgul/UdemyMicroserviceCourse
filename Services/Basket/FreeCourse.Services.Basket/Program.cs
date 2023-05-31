@@ -40,7 +40,7 @@ builder.Services.AddSingleton<RedisService>(sp =>
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(option =>
 {
     option.Authority = builder.Configuration.GetValue<string>("IdentityServerURL");
-    option.Audience = "resource_catalog"; // identityserver config apiresources, token içerisindeki bu bilgi sayesinde yetkili olup olmadýðýný anlayacaðýz
+    option.Audience = "resource_basket"; // identityserver config apiresources, token içerisindeki bu bilgi sayesinde yetkili olup olmadýðýný anlayacaðýz
     option.RequireHttpsMetadata = false; // https kullanmadðýmýz için kapalý yapýyoruz
 });
 #endregion

@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(option =>
 {
     option.Authority = builder.Configuration.GetValue<string>("IdentityServerURL");
-    option.Audience = "photo_stock_catalog"; // identityserver config apiresources,
+    option.Audience = "credential_photo_stock"; // identityserver config apiresources,
     // token içerisindeki bu bilgi sayesinde yetkili olup olmadýðýný anlayacaðýz
     // jwt içinde aud parametresi için photo_stock_catalog bilgisinin olmasýný bekliyoruz
     option.RequireHttpsMetadata = false; // https kullanmadðýmýz için kapalý yapýyoruz

@@ -18,7 +18,7 @@ builder.Services.AddScoped<ICourseService, CourseService>();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(option =>
 {
     option.Authority = builder.Configuration.GetValue<string>("IdentityServerURL");
-    option.Audience = "resource_catalog"; // identityserver config apiresources, token içerisindeki bu bilgi sayesinde yetkili olup olmadığını anlayacağız
+    option.Audience = "credential_catalog"; // identityserver config apiresources, token içerisindeki bu bilgi sayesinde yetkili olup olmadığını anlayacağız
     option.RequireHttpsMetadata = false; // https kullanmadğımız için kapalı yapıyoruz
 });
 #endregion
