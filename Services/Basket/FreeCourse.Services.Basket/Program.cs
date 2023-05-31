@@ -1,7 +1,11 @@
 using FreeCourse.Services.Basket.Services;
 using FreeCourse.Services.Basket.Settings;
 using FreeCourse.Shared.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Options;
+using System.Runtime.InteropServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +21,10 @@ builder.Services.AddScoped<ISharedIdentityService, SharedIdentityService>();
 builder.Services.Configure<RedisSettings>(builder.Configuration.GetSection("RedisSettings"));
 #endregion
 
+#region basketservice
+builder.Services.AddScoped<IBasketService, BasketService>();
+#endregion
+
 #region redis option pattern, uygulama çalýþýr çalýþmaz baðlantý kurmasý için
 builder.Services.AddSingleton<RedisService>(sp =>
 {
@@ -26,6 +34,29 @@ builder.Services.AddSingleton<RedisService>(sp =>
     return redis;
 });
 #endregion
+
+
+#region  authentication iþlemi için bir þema belirliyoruz
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(option =>
+{
+    option.Authority = builder.Configuration.GetValue<string>("IdentityServerURL");
+    option.Audience = "resource_catalog"; // identityserver config apiresources, token içerisindeki bu bilgi sayesinde yetkili olup olmadýðýný anlayacaðýz
+    option.RequireHttpsMetadata = false; // https kullanmadðýmýz için kapalý yapýyoruz
+});
+#endregion
+
+
+#region authorize parametreleri, tüm controller larýn tepesinde authorize attribute ü çalýþmasý için
+// burada global tanýmlamada, farklý olarak : authenticated olmuþ bir user gerekli diyoruz
+var requiredAuthorizePolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+
+builder.Services.AddControllers(opt =>
+{
+    opt.Filters.Add(new AuthorizeFilter(requiredAuthorizePolicy) { });
+});
+#endregion
+
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -42,6 +73,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
