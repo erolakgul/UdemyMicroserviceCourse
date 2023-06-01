@@ -1,6 +1,7 @@
 Identity
-        =             Port : 5001
+        =             Port : 5001  sqlServer
 Services 
-        = Catalog     port : 5011
-        = PhotoStock  port : 5012
-        = Basket      port : 5013
+        = Catalog     port : 5011  mongo
+        = PhotoStock  port : 5012  file
+        = Basket      port : 5013  redis db
+        = Discount    port : 5014  postgresql
