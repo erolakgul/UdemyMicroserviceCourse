@@ -7,9 +7,9 @@ namespace FreeCourse.Services.Discount.Services.Interfaces
     {
         Task<Response<List<Discounts>>> GetAllDiscountsAsync();
         Task<Response<Discounts>> GetDiscountsByIdAsync(int id);
-        Task<Response<NoContent>> Save(Discounts discounts);
-        Task<Response<NoContent>> Update(Discounts discounts);
-        Task<Response<NoContent>> Delete(int id);
+        Task<Response<NoContent>> SaveAsync(Discounts discounts);
+        Task<Response<NoContent>> UpdateAsync(Discounts discounts);
+        Task<Response<NoContent>> DeleteAsync(int id);
         Task<Response<Discounts>> GetByCodeAndUserIdAsync(string code, string userId);
     }
 }
