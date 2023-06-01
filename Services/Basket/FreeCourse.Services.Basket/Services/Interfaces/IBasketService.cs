@@ -1,7 +1,7 @@
 ﻿using FreeCourse.Services.Basket.Dtos;
 using FreeCourse.Shared.Dtos;
 
-namespace FreeCourse.Services.Basket.Services
+namespace FreeCourse.Services.Basket.Services.Interfaces
 {
     public interface IBasketService
     {
