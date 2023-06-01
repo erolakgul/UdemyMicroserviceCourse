@@ -25,8 +25,6 @@ namespace FreeCourse.Services.Basket.Controllers
         [HttpGet]
         public async Task<IActionResult> GetBasketAsync()
         {
-            var claim = User.Claims;
-
             // jwt den user id yi zaten alacağız, o yüzden parametre olarak string userıd olmasına gerek yok
             return CreateActionResultInstance(
                                       await _basketService.GetBasketByUserIdAsync(_sharedIdentityService.GetUserId)
