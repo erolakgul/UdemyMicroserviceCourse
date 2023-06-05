@@ -8,6 +8,7 @@
         public int Rate { get; set; }    // discount rate
         public string? Code { get; set; } // discount code
         public DateTime ValidDate { get; set; } // last valid date for code
+        public DateTime CreateDate { get; set; }
 
     }
 }

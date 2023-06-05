@@ -1,0 +1,13 @@
+﻿---- SQL Scripts
+
+*
+CREATE DATABASE discountdb
+    WITH 
+    OWNER = admin
+    ENCODING = 'UTF8'
+    tablespace = PG_DEFAULT
+    CONNECTION LIMIT = -1;
+   
+comment on database  discountdb is 'DATABASE FOR DISCOUNT MICROSERVICE';
+
+*
