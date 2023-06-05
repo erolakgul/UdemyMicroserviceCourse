@@ -6,7 +6,6 @@ using IdentityServer4;
 using IdentityServer4.Models;
 using System;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 
 namespace FreeCourse.IdentityServer
 {
@@ -28,6 +27,10 @@ namespace FreeCourse.IdentityServer
                       new ApiResource("resource_basket")
                      {
                         Scopes = { "basket_fullpermission" }
+                     },
+                      new ApiResource("resource_discount")
+                     {
+                        Scopes = { "discount_fullpermission" , "discount_read" , "discount_write" }   // read ve write ekstra tanımlandı
                      },
                       new ApiResource(IdentityServerConstants.LocalApi.ScopeName),
                    };
@@ -58,6 +61,14 @@ namespace FreeCourse.IdentityServer
 
                 new ApiScope("basket_fullpermission","Full Access for Basket Api"),
 
+                new ApiScope("discount_fullpermission","Full Access for Discount Api"),
+
+            #region örnek scope izin tanımlamaları
+		        new ApiScope("discount_read","read Access for Discount Api"),
+
+                new ApiScope("discount_write","write Access for Discount Api"), 
+         	#endregion
+
                 new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
             };
 
@@ -83,7 +94,7 @@ namespace FreeCourse.IdentityServer
                     ClientSecrets = {new Secret("secretKey".Sha256())}, //secretKey bilgisini veritabanında da tutabilirdik
                     AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,// refresh token a izin verir // token üretmede hangi yöntemi kullanacaksak onu belirtiyoruz
                     AllowOfflineAccess = true,
-                    AllowedScopes = {  "basket_fullpermission",
+                    AllowedScopes = {  "basket_fullpermission","discount_fullpermission",
                                        IdentityServerConstants.StandardScopes.Email, 
                                        IdentityServerConstants.StandardScopes.OpenId, 
                                        IdentityServerConstants.StandardScopes.Profile,
@@ -101,6 +112,28 @@ namespace FreeCourse.IdentityServer
                    ,RefreshTokenUsage = TokenUsage.ReUse
                 },
 
+               // discount api için read client ları ÖRNEK
+               new Client()
+                {
+                    ClientName = "Asp.NetCore MVC", 
+                    ClientId = "WebMvcClientForUser",
+                    ClientSecrets = {new Secret("secretKey".Sha256())},
+                    AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
+                    AllowOfflineAccess = true,
+                    AllowedScopes = {  "basket_fullpermission","discount_read",
+                                       IdentityServerConstants.StandardScopes.Email,
+                                       IdentityServerConstants.StandardScopes.OpenId,
+                                       IdentityServerConstants.StandardScopes.Profile,
+                                       IdentityServerConstants.LocalApi.ScopeName,
+                                       IdentityServerConstants.StandardScopes.OfflineAccess , 
+                                     "roles"
+                                    } 
+                                      ,
+                    AccessTokenLifetime = 1*60*60 
+                   ,RefreshTokenExpiration = TokenExpiration.Absolute
+                   ,AbsoluteRefreshTokenLifetime = (int) (DateTime.Now.AddDays(60)-DateTime.Now).TotalSeconds 
+                   ,RefreshTokenUsage = TokenUsage.ReUse
+                },
                 //// m2m client credentials flow client
                 //new Client
                 //{
