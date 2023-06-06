@@ -1,3 +1,5 @@
+using FreeCourse.Services.Discount.Services;
+using FreeCourse.Services.Discount.Services.Interfaces;
 using FreeCourse.Shared.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -17,6 +19,11 @@ builder.Services.AddScoped<ISharedIdentityService, SharedIdentityService>();
 #region jwt remove sub : nameidentifier map lemesini kaldýrmak için
 JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove("sub");
 #endregion
+
+#region discount service
+builder.Services.AddScoped<IDiscountService, DiscountService>();
+#endregion
+
 
 #region  authentication iþlemi için bir þema belirliyoruz
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(option =>

@@ -113,27 +113,28 @@ namespace FreeCourse.IdentityServer
                 },
 
                // discount api için read client ları ÖRNEK
-               new Client()
-                {
-                    ClientName = "Asp.NetCore MVC", 
-                    ClientId = "WebMvcClientForUser",
-                    ClientSecrets = {new Secret("secretKey".Sha256())},
-                    AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
-                    AllowOfflineAccess = true,
-                    AllowedScopes = {  "basket_fullpermission","discount_read",
-                                       IdentityServerConstants.StandardScopes.Email,
-                                       IdentityServerConstants.StandardScopes.OpenId,
-                                       IdentityServerConstants.StandardScopes.Profile,
-                                       IdentityServerConstants.LocalApi.ScopeName,
-                                       IdentityServerConstants.StandardScopes.OfflineAccess , 
-                                     "roles"
-                                    } 
-                                      ,
-                    AccessTokenLifetime = 1*60*60 
-                   ,RefreshTokenExpiration = TokenExpiration.Absolute
-                   ,AbsoluteRefreshTokenLifetime = (int) (DateTime.Now.AddDays(60)-DateTime.Now).TotalSeconds 
-                   ,RefreshTokenUsage = TokenUsage.ReUse
-                },
+               //new Client()
+               // {
+               //     ClientName = "Asp.NetCore MVC", 
+               //     ClientId = "WebMvcClientForUser",
+               //     ClientSecrets = {new Secret("secretKey".Sha256())},
+               //     AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
+               //     AllowOfflineAccess = true,
+               //     AllowedScopes = {  "basket_fullpermission","discount_read",
+               //                        IdentityServerConstants.StandardScopes.Email,
+               //                        IdentityServerConstants.StandardScopes.OpenId,
+               //                        IdentityServerConstants.StandardScopes.Profile,
+               //                        IdentityServerConstants.LocalApi.ScopeName,
+               //                        IdentityServerConstants.StandardScopes.OfflineAccess , 
+               //                      "roles"
+               //                     } 
+               //                       ,
+               //     AccessTokenLifetime = 1*60*60 
+               //    ,RefreshTokenExpiration = TokenExpiration.Absolute
+               //    ,AbsoluteRefreshTokenLifetime = (int) (DateTime.Now.AddDays(60)-DateTime.Now).TotalSeconds 
+               //    ,RefreshTokenUsage = TokenUsage.ReUse
+               // },
+
                 //// m2m client credentials flow client
                 //new Client
                 //{
