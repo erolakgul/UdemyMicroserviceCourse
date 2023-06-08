@@ -1,5 +1,4 @@
 ﻿using FreeCourse.Services.Order.Domain.Core;
-using System.Diagnostics;
 
 namespace FreeCourse.Services.Order.Domain.OrderAggregate
 {
