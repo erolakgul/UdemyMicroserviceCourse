@@ -13,6 +13,14 @@ namespace FreeCourse.Services.Order.Infrastructure.Context
         public DbSet<Domain.OrderAggregate.Order> Orders { get; set; }
         public DbSet<Domain.OrderAggregate.OrderItem> OrderItems { get; set; }
 
+        // birden fazla aggraggate domain im olsaydı aralarında haberleşmeleri için mediatR ın event lerini kullanacaktık
+        //public override int SaveChanges()
+        //{
+        //    // events
+        //    // if insert, if update etc
+        //    return base.SaveChanges();
+        //}
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             #region tablo şema ve isim ayarı
