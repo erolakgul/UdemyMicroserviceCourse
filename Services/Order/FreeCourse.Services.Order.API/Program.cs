@@ -1,4 +1,67 @@
+using FreeCourse.Services.Order.Infrastructure.Context;
+using FreeCourse.Shared.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using System.IdentityModel.Tokens.Jwt;
+using System.Reflection;
+
 var builder = WebApplication.CreateBuilder(args);
+
+#region db context
+builder.Services.AddDbContext<OrderDbContext>(options =>
+   options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
+   configure =>
+   {   // migration ýn oluþacaðý library i belirtiyoruz
+     configure.MigrationsAssembly("FreeCourse.Services.Order.Infrastructure");
+   })
+);
+#endregion
+
+#region https access
+builder.Services.AddHttpContextAccessor();
+#endregion
+
+#region shared service
+builder.Services.AddScoped<ISharedIdentityService,SharedIdentityService>();
+#endregion
+
+#region mediator service
+builder.Services.AddMediatR(
+       cfg => cfg.RegisterServicesFromAssembly(
+                       typeof(FreeCourse.Services.Order.Application.Command.CreateOrderCommand).Assembly
+                                              )
+                           );
+#endregion
+
+
+#region jwt sub : nameidentifier map lemesini kaldýrmak için
+JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove("sub");
+#endregion
+
+#region  authentication iþlemi için bir þema belirliyoruz
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(option =>
+{
+    option.Authority = builder.Configuration.GetValue<string>("IdentityServerURL");
+    option.Audience = "resource_order"; // identityserver config apiresources, token içerisindeki bu bilgi sayesinde yetkili olup olmadýðýný anlayacaðýz
+    option.RequireHttpsMetadata = false; // https kullanmadðýmýz için kapalý yapýyoruz
+});
+#endregion
+
+#region authorize parametreleri, tüm controller larýn tepesinde authorize attribute ü çalýþmasý için
+// burada global tanýmlamada, farklý olarak : authenticated olmuþ bir user gerekli diyoruz
+var requiredAuthorizePolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+
+builder.Services.AddControllers(opt =>
+{
+    opt.Filters.Add(new AuthorizeFilter(requiredAuthorizePolicy) { });
+});
+#endregion
+
+
+
 
 // Add services to the container.
 
@@ -15,6 +78,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

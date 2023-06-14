@@ -2,10 +2,10 @@
 {
     public class OrderItemDto
     {
-        public string? ProductId { get; private set; }
-        public string? ProductName { get; private set; }
-        public string? PictureUrl { get; private set; }
-        public decimal Price { get; private set; }
-        public int Quantity { get; private set; } = 1;
+        public string? ProductId { get;  set; }
+        public string? ProductName { get;  set; }
+        public string? PictureUrl { get;  set; }
+        public decimal Price { get;  set; }
+        public int Quantity { get;  set; } = 1;
     }
 }

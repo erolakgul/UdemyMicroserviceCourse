@@ -6,7 +6,7 @@ namespace FreeCourse.Services.Order.Application.Mapping
     {
         //normalde static class lar uygulama ayağa kalkar kalmaz init olur
         //ama sadece çağırıldığı anda init olması isteniyorsa lazy class ı kullanılır
-        private static readonly Lazy<IMapper> mapper = new Lazy<IMapper>(() =>
+        private static readonly Lazy<IMapper> mapper = new (() =>
         {
             var config = new MapperConfiguration(cfg =>
             {

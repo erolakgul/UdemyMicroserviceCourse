@@ -32,6 +32,10 @@ namespace FreeCourse.IdentityServer
                      {
                         Scopes = { "discount_fullpermission" , "discount_read" , "discount_write" }   // read ve write ekstra tanımlandı
                      },
+                      new ApiResource("resource_order")
+                     {
+                        Scopes = { "order_fullpermission" }
+                     },
                       new ApiResource(IdentityServerConstants.LocalApi.ScopeName),
                    };
 
@@ -62,6 +66,8 @@ namespace FreeCourse.IdentityServer
                 new ApiScope("basket_fullpermission","Full Access for Basket Api"),
 
                 new ApiScope("discount_fullpermission","Full Access for Discount Api"),
+
+                new ApiScope("order_fullpermission","Full Access for Order Api"),
 
             #region örnek scope izin tanımlamaları
 		        new ApiScope("discount_read","read Access for Discount Api"),
@@ -94,7 +100,7 @@ namespace FreeCourse.IdentityServer
                     ClientSecrets = {new Secret("secretKey".Sha256())}, //secretKey bilgisini veritabanında da tutabilirdik
                     AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,// refresh token a izin verir // token üretmede hangi yöntemi kullanacaksak onu belirtiyoruz
                     AllowOfflineAccess = true,
-                    AllowedScopes = {  "basket_fullpermission","discount_fullpermission",
+                    AllowedScopes = {  "basket_fullpermission","discount_fullpermission","order_fullpermission",
                                        IdentityServerConstants.StandardScopes.Email, 
                                        IdentityServerConstants.StandardScopes.OpenId, 
                                        IdentityServerConstants.StandardScopes.Profile,

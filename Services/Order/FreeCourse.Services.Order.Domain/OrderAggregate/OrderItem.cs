@@ -10,6 +10,7 @@ namespace FreeCourse.Services.Order.Domain.OrderAggregate
         public decimal Price { get; private set; }
         public int Quantity { get; private set; } = 1;
 
+        public OrderItem(){}
         public OrderItem(string? productId, string? productName, string? pictureUrl, decimal price, int quantity = 1)
         {
             ProductId = productId;

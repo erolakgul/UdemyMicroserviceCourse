@@ -18,6 +18,8 @@ namespace FreeCourse.Services.Order.Domain.OrderAggregate
         private readonly List<OrderItem> _orderItems; // backing field ef core kendi dolduracak
         //sadece okuma işlemi yapan OrderItems verilerini döner
         public IReadOnlyCollection<OrderItem> OrderItems { get {  return _orderItems; } }
+        // boş constructure
+        public Order() { }
 
         public Order(Address? address, string? buyerId)
         {
