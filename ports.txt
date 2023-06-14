@@ -6,3 +6,4 @@ Services
         = Basket      port : 5013  redis db
         = Discount    port : 5014  postgresql
         = Order       port : 5015  sqlServer
+        = Payment     port : 5016
