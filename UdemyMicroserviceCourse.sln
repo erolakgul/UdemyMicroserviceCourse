@@ -48,7 +48,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreeCourse.Services.Order.I
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Payment", "Payment", "{1CF30BA0-6F89-4D58-851E-ACED6797BE57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeCourse.Services.Payment", "Services\Payment\FreeCourse.Services.Payment\FreeCourse.Services.Payment.csproj", "{7B0D8186-AD1B-48E9-ACDD-43188937D785}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreeCourse.Services.Payment", "Services\Payment\FreeCourse.Services.Payment\FreeCourse.Services.Payment.csproj", "{7B0D8186-AD1B-48E9-ACDD-43188937D785}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateways", "Gateways", "{9DF89169-9247-46D5-9858-DB12AAB88524}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{642EB6A1-BBB0-476C-BAAF-E462CB55659C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -127,6 +131,7 @@ Global
 		{6D0DA0EE-4DD2-4DA8-9D23-27664A1CD128} = {F3C34EFA-09B0-4465-B442-A791451599A1}
 		{1CF30BA0-6F89-4D58-851E-ACED6797BE57} = {370F4A63-3F7A-4953-94D9-EE44B00F1388}
 		{7B0D8186-AD1B-48E9-ACDD-43188937D785} = {1CF30BA0-6F89-4D58-851E-ACED6797BE57}
+		{642EB6A1-BBB0-476C-BAAF-E462CB55659C} = {9DF89169-9247-46D5-9858-DB12AAB88524}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {14DA57E4-210E-45EC-8133-36EFFB48D7AA}
