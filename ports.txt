@@ -1,9 +1,12 @@
 Identity
         =             Port : 5001  sqlServer
+
+Gateway = WebApi      Port : 5000
+
 Services 
         = Catalog     port : 5011  mongo
         = PhotoStock  port : 5012  file
         = Basket      port : 5013  redis db
         = Discount    port : 5014  postgresql
         = Order       port : 5015  sqlServer
-        = Payment     port : 5016
+        = Payment     port : 5016 
