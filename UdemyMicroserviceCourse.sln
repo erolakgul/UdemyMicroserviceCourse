@@ -54,11 +54,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateways", "Gateways", "{9D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{642EB6A1-BBB0-476C-BAAF-E462CB55659C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeCourse.Gateways.WebApi", "Gateways\Web\FreeCourse.Gateways.WebApi\FreeCourse.Gateways.WebApi.csproj", "{57A10CFB-8384-4026-8404-3F88D1244265}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreeCourse.Gateways.WebApi", "Gateways\Web\FreeCourse.Gateways.WebApi\FreeCourse.Gateways.WebApi.csproj", "{57A10CFB-8384-4026-8404-3F88D1244265}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mobile", "Mobile", "{68AE70B0-2F76-437F-8595-77437418E1E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeCourse.Gateways.MobileApi", "Gateways\Mobile\FreeCourse.Gateways.MobileApi\FreeCourse.Gateways.MobileApi.csproj", "{D8BBFED7-2A4B-4D35-B3EA-AC7356265496}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreeCourse.Gateways.MobileApi", "Gateways\Mobile\FreeCourse.Gateways.MobileApi\FreeCourse.Gateways.MobileApi.csproj", "{D8BBFED7-2A4B-4D35-B3EA-AC7356265496}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
