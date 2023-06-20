@@ -1,5 +1,24 @@
 {
-  "ConnectionStrings": {
-    "DefaultConnection": "Server=(localdb)\\MSSQLLocalDB;Database=_CHANGE_ME;Trusted_Connection=True;MultipleActiveResultSets=true"
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost", //"jsonplaceholder.typicode.com",
+          "Port": 5011
+        }
+      ],
+      "UpstreamPathTemplate": "/services/catalog/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Delete", "Put" ], // izin veirlen http methodları
+      "UpstreamScheme": "http" // sadece http isteklerine izin ver
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:5000"
   }
 }
+// ör gelen request http://localhost:5000/services/catalog/course
+// gateway bunu catalog mikroservice i için http://localhost:5011/api/course url ine yönlendirir
+// ya da gelen request http://localhost:5000/services/catalog/course/save
+// ise ateway bunu catalog mikroservice i için http://localhost:5011/api/course/save url ine yönlendirir

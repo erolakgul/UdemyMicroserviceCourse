@@ -2,9 +2,7 @@
 using FreeCourse.Services.Basket.Services.Interfaces;
 using FreeCourse.Shared.ControllerBases;
 using FreeCourse.Shared.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Runtime.CompilerServices;
 
 namespace FreeCourse.Services.Basket.Controllers
 {
