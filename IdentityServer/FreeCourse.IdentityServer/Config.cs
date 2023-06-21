@@ -40,6 +40,10 @@ namespace FreeCourse.IdentityServer
                      {
                         Scopes = { "payment_fullpermission" }
                      },
+                      new ApiResource("resource_gateway")
+                     {
+                        Scopes = { "gateway_fullpermission" }
+                     },
                       new ApiResource(IdentityServerConstants.LocalApi.ScopeName),
                    };
 
@@ -75,6 +79,8 @@ namespace FreeCourse.IdentityServer
 
                 new ApiScope("payment_fullpermission","Full Access for Payment Api"),
 
+                new ApiScope("gateway_fullpermission","Full Access for Gateway Api"),
+
             #region örnek scope izin tanımlamaları
 		        new ApiScope("discount_read","read Access for Discount Api"),
 
@@ -94,7 +100,9 @@ namespace FreeCourse.IdentityServer
                     ClientId = "WebMvcClient",
                     ClientSecrets = {new Secret("secretKey".Sha256())}, //secretKey bilgisini veritabanında da tutabilirdik
                     AllowedGrantTypes = GrantTypes.ClientCredentials, // token üretmede hangi yöntemi kullanacaksak onu belirtiyoruz
-                    AllowedScopes = { "catalog_fullpermission", "photo_stock_fullpermission" , IdentityServerConstants.LocalApi.ScopeName }  // hangi scope lara izin verilecekse onlar tanımlanır
+                    AllowedScopes = { "catalog_fullpermission", "photo_stock_fullpermission" 
+                                    ,"gateway_fullpermission"
+                                    , IdentityServerConstants.LocalApi.ScopeName }  // hangi scope lara izin verilecekse onlar tanımlanır
 
                 },
         
@@ -106,7 +114,7 @@ namespace FreeCourse.IdentityServer
                     ClientSecrets = {new Secret("secretKey".Sha256())}, //secretKey bilgisini veritabanında da tutabilirdik
                     AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,// refresh token a izin verir // token üretmede hangi yöntemi kullanacaksak onu belirtiyoruz
                     AllowOfflineAccess = true,
-                    AllowedScopes = {  "basket_fullpermission","discount_fullpermission","order_fullpermission",
+                    AllowedScopes = { "gateway_fullpermission" ,"basket_fullpermission","discount_fullpermission","order_fullpermission",
                                        "payment_fullpermission",
                                        IdentityServerConstants.StandardScopes.Email, 
                                        IdentityServerConstants.StandardScopes.OpenId, 
