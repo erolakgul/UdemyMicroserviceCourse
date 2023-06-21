@@ -1,8 +1,10 @@
-﻿using FreeCourse.Services.Catalog.Services;
+﻿using FreeCourse.Services.Catalog.Dto;
+using FreeCourse.Services.Catalog.Services;
 using FreeCourse.Services.Catalog.Services.Interfaces;
 using FreeCourse.Services.Catalog.Settings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -28,7 +30,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 builder.Services.AddControllers(opt =>
 {
     opt.Filters.Add(new AuthorizeFilter() { });
-}); 
+});
 #endregion
 
 
@@ -47,8 +49,23 @@ builder.Services.AddSingleton<ICustomDatabaseSettings>(sp =>
 });
 #endregion
 
+
 /***************************************************************************************/
 var app = builder.Build();
+
+
+// using işlemi bittikten sonra memory den düşmesi için scope açıyoruz
+using (var scope = app.Services.CreateScope())
+{
+    var serviceProvider = scope.ServiceProvider;
+    var categoryService = serviceProvider.GetRequiredService<ICategoryService>();
+
+    if (!categoryService.GetAllAsync().Result.Data.Any())
+    {
+        categoryService.CreateAsync(new CategoryCreateDto() { Name = "Aspdotnet Core Kursu"}).Wait();
+        categoryService.CreateAsync(new CategoryCreateDto() { Name = "Sql Server Kursu" }).Wait();
+    }
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
