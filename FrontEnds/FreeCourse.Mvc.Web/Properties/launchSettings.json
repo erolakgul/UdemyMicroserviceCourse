@@ -11,8 +11,8 @@
     "FreeCourse.Mvc.Web": {
       "commandName": "Project",
       "dotnetRunMessages": true,
-      "launchBrowser": true,
-      "applicationUrl": "http://localhost:5155",
+      "launchBrowser": false,
+      "applicationUrl": "http://localhost:5010",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
