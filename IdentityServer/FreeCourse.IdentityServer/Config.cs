@@ -114,8 +114,8 @@ namespace FreeCourse.IdentityServer
                     ClientSecrets = {new Secret("secretKey".Sha256())}, //secretKey bilgisini veritabanında da tutabilirdik
                     AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,// refresh token a izin verir // token üretmede hangi yöntemi kullanacaksak onu belirtiyoruz
                     AllowOfflineAccess = true,
-                    AllowedScopes = { "gateway_fullpermission" ,"basket_fullpermission","discount_fullpermission","order_fullpermission",
-                                       "payment_fullpermission",
+                    AllowedScopes = { "gateway_fullpermission" ,"basket_fullpermission","discount_fullpermission"
+                                      ,"order_fullpermission", "payment_fullpermission",
                                        IdentityServerConstants.StandardScopes.Email, 
                                        IdentityServerConstants.StandardScopes.OpenId, 
                                        IdentityServerConstants.StandardScopes.Profile,
