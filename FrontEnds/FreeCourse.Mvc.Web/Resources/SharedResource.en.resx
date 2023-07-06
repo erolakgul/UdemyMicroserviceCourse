@@ -1,0 +1,459 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btnClose" xml:space="preserve">
+    <value>Enter!</value>
+  </data>
+  <data name="btnDelete" xml:space="preserve">
+    <value>Delete !</value>
+  </data>
+  <data name="btnLogin" xml:space="preserve">
+    <value>Login!</value>
+  </data>
+  <data name="btnSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="btnUpdate" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="dn.City" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="dn.Email" xml:space="preserve">
+    <value>Enter your email address</value>
+  </data>
+  <data name="dn.Error.City" xml:space="preserve">
+    <value>Please fill City field</value>
+  </data>
+  <data name="dn.Error.Email" xml:space="preserve">
+    <value>Email field cannot be left blank!</value>
+  </data>
+  <data name="dn.Error.Password" xml:space="preserve">
+    <value>Password field cannot be left blank!</value>
+  </data>
+  <data name="dn.IsRemember" xml:space="preserve">
+    <value>Remember my information!</value>
+  </data>
+  <data name="dn.Password" xml:space="preserve">
+    <value>Enter your password</value>
+  </data>
+  <data name="dnBlockedTime" xml:space="preserve">
+    <value>Blocked Time</value>
+  </data>
+  <data name="dnChangedBy" xml:space="preserve">
+    <value>Changed By</value>
+  </data>
+  <data name="dnChangedDate" xml:space="preserve">
+    <value>Changed Date</value>
+  </data>
+  <data name="dnChatID" xml:space="preserve">
+    <value>Chat ID</value>
+  </data>
+  <data name="dnCreatedBy" xml:space="preserve">
+    <value>Created By</value>
+  </data>
+  <data name="dnCreatedDate" xml:space="preserve">
+    <value>Created Date</value>
+  </data>
+  <data name="dnDeletedTime" xml:space="preserve">
+    <value>Deleted Time</value>
+  </data>
+  <data name="dnIsBlocked" xml:space="preserve">
+    <value>Is Blocked</value>
+  </data>
+  <data name="dnIsDeleted" xml:space="preserve">
+    <value>Is Deleted</value>
+  </data>
+  <data name="dnTGToken" xml:space="preserve">
+    <value>Token Information</value>
+  </data>
+  <data name="lblAccount" xml:space="preserve">
+    <value>Account Settings</value>
+  </data>
+  <data name="lblAccountSettings" xml:space="preserve">
+    <value>Account Settings</value>
+  </data>
+  <data name="lblActionUrl" xml:space="preserve">
+    <value>Action End Point (Area-Controller-Action)</value>
+  </data>
+  <data name="lblAddress1" xml:space="preserve">
+    <value>Address 1</value>
+  </data>
+  <data name="lblAddress1Desc" xml:space="preserve">
+    <value>1234 Main St</value>
+  </data>
+  <data name="lblAddress2" xml:space="preserve">
+    <value>Address 2</value>
+  </data>
+  <data name="lblAddress2Desc" xml:space="preserve">
+    <value>Apartment, studio, or floor</value>
+  </data>
+  <data name="lblAssignments" xml:space="preserve">
+    <value>ASSIGNMENTS</value>
+  </data>
+  <data name="lblAuthorityID" xml:space="preserve">
+    <value>Authority ID</value>
+  </data>
+  <data name="lblAuthorization" xml:space="preserve">
+    <value>Authorization</value>
+  </data>
+  <data name="lblBackToList" xml:space="preserve">
+    <value>Back To List</value>
+  </data>
+  <data name="lblBenches" xml:space="preserve">
+    <value>BENCHES</value>
+  </data>
+  <data name="lblBranch" xml:space="preserve">
+    <value>Branch</value>
+  </data>
+  <data name="lblCity" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="lblClose" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="lblCompanies" xml:space="preserve">
+    <value>COMPANIES</value>
+  </data>
+  <data name="lblCompany" xml:space="preserve">
+    <value>Company</value>
+  </data>
+  <data name="lblCompanyName" xml:space="preserve">
+    <value>Company Name</value>
+  </data>
+  <data name="lblConnection" xml:space="preserve">
+    <value>Connection</value>
+  </data>
+  <data name="lblConnectionList" xml:space="preserve">
+    <value>Connection List</value>
+  </data>
+  <data name="lblContactEmail" xml:space="preserve">
+    <value>Contact Email</value>
+  </data>
+  <data name="lblContactPhone" xml:space="preserve">
+    <value>Contact Phone</value>
+  </data>
+  <data name="lblCountry" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="lblCreate" xml:space="preserve">
+    <value>Create!</value>
+  </data>
+  <data name="lblCreateDate" xml:space="preserve">
+    <value>Create Date</value>
+  </data>
+  <data name="lblCreatedBy" xml:space="preserve">
+    <value>Created By</value>
+  </data>
+  <data name="lblCustomer" xml:space="preserve">
+    <value>Customer</value>
+  </data>
+  <data name="lblDatabaseName" xml:space="preserve">
+    <value>Database Name</value>
+  </data>
+  <data name="lblDbUserName" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="lblDbUserPassword" xml:space="preserve">
+    <value>User Password</value>
+  </data>
+  <data name="lblDelete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="lblDeleted" xml:space="preserve">
+    <value>Deleted</value>
+  </data>
+  <data name="lblDeletingQuestion" xml:space="preserve">
+    <value>Are you sure you want to delete this?</value>
+  </data>
+  <data name="lblDescription" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="lblDetail" xml:space="preserve">
+    <value>Detail</value>
+  </data>
+  <data name="lblDetails" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="lblEdit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="lblEmployeeCardNo" xml:space="preserve">
+    <value>Employee CardNo</value>
+  </data>
+  <data name="lblForgetPassword" xml:space="preserve">
+    <value>Forgot your password?</value>
+  </data>
+  <data name="lblID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="lblIsBlocked" xml:space="preserve">
+    <value>IsBlocked</value>
+  </data>
+  <data name="lblIsDeleted" xml:space="preserve">
+    <value>IsDeleted</value>
+  </data>
+  <data name="lblLoginDesc" xml:space="preserve">
+    <value>Login to manage your account!</value>
+  </data>
+  <data name="lblLogOff" xml:space="preserve">
+    <value>Log Off</value>
+  </data>
+  <data name="lblMachineManagement" xml:space="preserve">
+    <value>Machine Management</value>
+  </data>
+  <data name="lblMail" xml:space="preserve">
+    <value>Mail</value>
+  </data>
+  <data name="lblMainPage" xml:space="preserve">
+    <value>Main Page</value>
+  </data>
+  <data name="lblMtext" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="lblName" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="lblNewCompanies" xml:space="preserve">
+    <value>New Company</value>
+  </data>
+  <data name="lblNewCompany" xml:space="preserve">
+    <value>Create New Company</value>
+  </data>
+  <data name="lblNewConnection" xml:space="preserve">
+    <value>New Connection</value>
+  </data>
+  <data name="lblNewPlants" xml:space="preserve">
+    <value>New Plant</value>
+  </data>
+  <data name="lblNewUsers" xml:space="preserve">
+    <value>New Users</value>
+  </data>
+  <data name="lblNotificationContent" xml:space="preserve">
+    <value>Notification Content</value>
+  </data>
+  <data name="lblNotificationType" xml:space="preserve">
+    <value>Notification Type</value>
+  </data>
+  <data name="lblPassword" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="lblPhone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="lblPlant" xml:space="preserve">
+    <value>Plant</value>
+  </data>
+  <data name="lblPlantList" xml:space="preserve">
+    <value>Plant List</value>
+  </data>
+  <data name="lblPlantName" xml:space="preserve">
+    <value>Plant Name</value>
+  </data>
+  <data name="lblProfil" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="lblReceiver" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="lblReports" xml:space="preserve">
+    <value>REPORTS</value>
+  </data>
+  <data name="lblReturnBack" xml:space="preserve">
+    <value>Return Back</value>
+  </data>
+  <data name="lblRole" xml:space="preserve">
+    <value>Authorization Type</value>
+  </data>
+  <data name="lblSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="lblSenderName" xml:space="preserve">
+    <value>Sender</value>
+  </data>
+  <data name="lblServerName" xml:space="preserve">
+    <value>Server Name</value>
+  </data>
+  <data name="lblSlogan" xml:space="preserve">
+    <value>Metron Technology</value>
+  </data>
+  <data name="lblSurName" xml:space="preserve">
+    <value>Sur Name</value>
+  </data>
+  <data name="lblTelegramContact" xml:space="preserve">
+    <value>Telegram Contact</value>
+  </data>
+  <data name="lblTelegramDetail" xml:space="preserve">
+    <value>Telegram Account Detail</value>
+  </data>
+  <data name="lblTgForAllPlants" xml:space="preserve">
+    <value>Telegram Accounts For All Plants</value>
+  </data>
+  <data name="lblTitle" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="lblTown" xml:space="preserve">
+    <value>Town</value>
+  </data>
+  <data name="lblTransfers" xml:space="preserve">
+    <value>TRANSFERS</value>
+  </data>
+  <data name="lblUpdateCompany" xml:space="preserve">
+    <value>Update Company</value>
+  </data>
+  <data name="lblUpdateConnection" xml:space="preserve">
+    <value>Update Connection</value>
+  </data>
+  <data name="lblUpdatePlant" xml:space="preserve">
+    <value>Update Plant</value>
+  </data>
+  <data name="lblUpdateUserAuthority" xml:space="preserve">
+    <value>User Authorities</value>
+  </data>
+  <data name="lblUser" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="lblUserList" xml:space="preserve">
+    <value>User List</value>
+  </data>
+  <data name="lblUsername" xml:space="preserve">
+    <value>Personnel ID</value>
+  </data>
+  <data name="lblUsers" xml:space="preserve">
+    <value>New Users</value>
+  </data>
+  <data name="lblWebApiBaseUrl" xml:space="preserve">
+    <value>Web Api Base Url</value>
+  </data>
+  <data name="lblWelcome" xml:space="preserve">
+    <value>Welcome</value>
+  </data>
+  <data name="lblZipCode" xml:space="preserve">
+    <value>Zip Code</value>
+  </data>
+  <data name="msgAuthority" xml:space="preserve">
+    <value>You are not authorized</value>
+  </data>
+  <data name="msgMessage" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="msgSource" xml:space="preserve">
+    <value>Source</value>
+  </data>
+</root>

@@ -13,11 +13,17 @@ namespace FreeCourse.Mvc.Web.Controllers
             _logger = logger;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Index(SigninInput signinInput)
+        {
+            return Ok(signinInput);
+        }
         public IActionResult Privacy()
         {
             return View();

@@ -1,0 +1,459 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btnClose" xml:space="preserve">
+    <value>Kapat</value>
+  </data>
+  <data name="btnDelete" xml:space="preserve">
+    <value>Sil !</value>
+  </data>
+  <data name="btnLogin" xml:space="preserve">
+    <value>Giriş Yap!</value>
+  </data>
+  <data name="btnSave" xml:space="preserve">
+    <value>Kaydet</value>
+  </data>
+  <data name="btnUpdate" xml:space="preserve">
+    <value>Güncelle</value>
+  </data>
+  <data name="dn.City" xml:space="preserve">
+    <value>Şehir</value>
+  </data>
+  <data name="dn.Email" xml:space="preserve">
+    <value>Email adresinizi giriniz</value>
+  </data>
+  <data name="dn.Error.City" xml:space="preserve">
+    <value>Lütfen Şehir alanını doldurunuz !</value>
+  </data>
+  <data name="dn.Error.Email" xml:space="preserve">
+    <value>Email alanı boş bırakılamaz !</value>
+  </data>
+  <data name="dn.Error.Password" xml:space="preserve">
+    <value>Şifre alanı boş bırakılamaz !</value>
+  </data>
+  <data name="dn.IsRemember" xml:space="preserve">
+    <value>Bilgilerimi hatırla !</value>
+  </data>
+  <data name="dn.Password" xml:space="preserve">
+    <value>Şifrenizi giriniz</value>
+  </data>
+  <data name="dnBlockedTime" xml:space="preserve">
+    <value>Bloklama Zamanı</value>
+  </data>
+  <data name="dnChangedBy" xml:space="preserve">
+    <value>Değiştiren</value>
+  </data>
+  <data name="dnChangedDate" xml:space="preserve">
+    <value>Değiştirme Zamanı</value>
+  </data>
+  <data name="dnChatID" xml:space="preserve">
+    <value>Sohbet ID</value>
+  </data>
+  <data name="dnCreatedBy" xml:space="preserve">
+    <value>Oluşturan</value>
+  </data>
+  <data name="dnCreatedDate" xml:space="preserve">
+    <value>Oluşturulma Zamanı</value>
+  </data>
+  <data name="dnDeletedTime" xml:space="preserve">
+    <value>Silinme Zamanı</value>
+  </data>
+  <data name="dnIsBlocked" xml:space="preserve">
+    <value>Bloklu Mu?</value>
+  </data>
+  <data name="dnIsDeleted" xml:space="preserve">
+    <value>Silindi Mi?</value>
+  </data>
+  <data name="dnTGToken" xml:space="preserve">
+    <value>Token Bilgisi</value>
+  </data>
+  <data name="lblAccount" xml:space="preserve">
+    <value>Hesap Ayarları</value>
+  </data>
+  <data name="lblAccountSettings" xml:space="preserve">
+    <value>Hesap Ayarları</value>
+  </data>
+  <data name="lblActionUrl" xml:space="preserve">
+    <value>Aksiyon Uç Noktası (Area-Controller-Action)</value>
+  </data>
+  <data name="lblAddress1" xml:space="preserve">
+    <value>Adres 1</value>
+  </data>
+  <data name="lblAddress1Desc" xml:space="preserve">
+    <value>1234.cü sokak ..</value>
+  </data>
+  <data name="lblAddress2" xml:space="preserve">
+    <value>Adres 2</value>
+  </data>
+  <data name="lblAddress2Desc" xml:space="preserve">
+    <value>apartman , daire vs</value>
+  </data>
+  <data name="lblAssignments" xml:space="preserve">
+    <value>ATAMALAR</value>
+  </data>
+  <data name="lblAuthorityID" xml:space="preserve">
+    <value>Yetki ID</value>
+  </data>
+  <data name="lblAuthorization" xml:space="preserve">
+    <value>Yetkilendirme</value>
+  </data>
+  <data name="lblBackToList" xml:space="preserve">
+    <value>Listelemeye Geri Dön</value>
+  </data>
+  <data name="lblBenches" xml:space="preserve">
+    <value>TEZGAHLAR</value>
+  </data>
+  <data name="lblBranch" xml:space="preserve">
+    <value>Şube</value>
+  </data>
+  <data name="lblCity" xml:space="preserve">
+    <value>Şehir</value>
+  </data>
+  <data name="lblClose" xml:space="preserve">
+    <value>Kapat</value>
+  </data>
+  <data name="lblCompanies" xml:space="preserve">
+    <value>FİRMALAR</value>
+  </data>
+  <data name="lblCompany" xml:space="preserve">
+    <value>Firma</value>
+  </data>
+  <data name="lblCompanyName" xml:space="preserve">
+    <value>Firma Adı</value>
+  </data>
+  <data name="lblConnection" xml:space="preserve">
+    <value>Bağlantı</value>
+  </data>
+  <data name="lblConnectionList" xml:space="preserve">
+    <value>Bağlantı Listesi</value>
+  </data>
+  <data name="lblContactEmail" xml:space="preserve">
+    <value>Mail Adresi</value>
+  </data>
+  <data name="lblContactPhone" xml:space="preserve">
+    <value>Telefon Numarası</value>
+  </data>
+  <data name="lblCountry" xml:space="preserve">
+    <value>Ülke</value>
+  </data>
+  <data name="lblCreate" xml:space="preserve">
+    <value>Oluştur!</value>
+  </data>
+  <data name="lblCreateDate" xml:space="preserve">
+    <value>Oluşturma Tarihi</value>
+  </data>
+  <data name="lblCreatedBy" xml:space="preserve">
+    <value>Oluşturan</value>
+  </data>
+  <data name="lblCustomer" xml:space="preserve">
+    <value>Firma</value>
+  </data>
+  <data name="lblDatabaseName" xml:space="preserve">
+    <value>Veritabanı</value>
+  </data>
+  <data name="lblDbUserName" xml:space="preserve">
+    <value>Veritabanı Kullanıcısı</value>
+  </data>
+  <data name="lblDbUserPassword" xml:space="preserve">
+    <value>Kullanıcı Şifresi</value>
+  </data>
+  <data name="lblDelete" xml:space="preserve">
+    <value>Sil</value>
+  </data>
+  <data name="lblDeleted" xml:space="preserve">
+    <value>Silinmiş</value>
+  </data>
+  <data name="lblDeletingQuestion" xml:space="preserve">
+    <value>Silmek istediğinize emin misiniz?</value>
+  </data>
+  <data name="lblDescription" xml:space="preserve">
+    <value>Açıklama</value>
+  </data>
+  <data name="lblDetail" xml:space="preserve">
+    <value>Detay</value>
+  </data>
+  <data name="lblDetails" xml:space="preserve">
+    <value>Detay</value>
+  </data>
+  <data name="lblEdit" xml:space="preserve">
+    <value>Düzenle</value>
+  </data>
+  <data name="lblEmployeeCardNo" xml:space="preserve">
+    <value>Sicil Numarası</value>
+  </data>
+  <data name="lblForgetPassword" xml:space="preserve">
+    <value>Şifrenizi mi unuttunuz?</value>
+  </data>
+  <data name="lblID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="lblIsBlocked" xml:space="preserve">
+    <value>Bloklanmış</value>
+  </data>
+  <data name="lblIsDeleted" xml:space="preserve">
+    <value>Silinmiş</value>
+  </data>
+  <data name="lblLoginDesc" xml:space="preserve">
+    <value>Hesabınızı yönetmek için giriş yapın!</value>
+  </data>
+  <data name="lblLogOff" xml:space="preserve">
+    <value>Çıkış Yap</value>
+  </data>
+  <data name="lblMachineManagement" xml:space="preserve">
+    <value>Tezgah Yönetimi</value>
+  </data>
+  <data name="lblMail" xml:space="preserve">
+    <value>Mail</value>
+  </data>
+  <data name="lblMainPage" xml:space="preserve">
+    <value>Anasayfa</value>
+  </data>
+  <data name="lblMtext" xml:space="preserve">
+    <value>Açıklama</value>
+  </data>
+  <data name="lblName" xml:space="preserve">
+    <value>Kullanıcı Adı</value>
+  </data>
+  <data name="lblNewCompanies" xml:space="preserve">
+    <value>Yeni Müşteri</value>
+  </data>
+  <data name="lblNewCompany" xml:space="preserve">
+    <value>Yeni Firma Ekle</value>
+  </data>
+  <data name="lblNewConnection" xml:space="preserve">
+    <value>Yeni Bağlantı</value>
+  </data>
+  <data name="lblNewPlants" xml:space="preserve">
+    <value>Yeni Tesis</value>
+  </data>
+  <data name="lblNewUsers" xml:space="preserve">
+    <value>Yeni Kullanıcı</value>
+  </data>
+  <data name="lblNotificationContent" xml:space="preserve">
+    <value>Bildirim İçeriği</value>
+  </data>
+  <data name="lblNotificationType" xml:space="preserve">
+    <value>Bildirim Tipi</value>
+  </data>
+  <data name="lblPassword" xml:space="preserve">
+    <value>Şifre</value>
+  </data>
+  <data name="lblPhone" xml:space="preserve">
+    <value>Tel</value>
+  </data>
+  <data name="lblPlant" xml:space="preserve">
+    <value>Tesis</value>
+  </data>
+  <data name="lblPlantList" xml:space="preserve">
+    <value>Tesis Listesi</value>
+  </data>
+  <data name="lblPlantName" xml:space="preserve">
+    <value>Tesis Adı</value>
+  </data>
+  <data name="lblProfil" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="lblReceiver" xml:space="preserve">
+    <value>Alıcı</value>
+  </data>
+  <data name="lblReports" xml:space="preserve">
+    <value>RAPORLAR</value>
+  </data>
+  <data name="lblReturnBack" xml:space="preserve">
+    <value>Geri Dön</value>
+  </data>
+  <data name="lblRole" xml:space="preserve">
+    <value>Yetki Tipi</value>
+  </data>
+  <data name="lblSave" xml:space="preserve">
+    <value>Kaydet</value>
+  </data>
+  <data name="lblSenderName" xml:space="preserve">
+    <value>Gönderen</value>
+  </data>
+  <data name="lblServerName" xml:space="preserve">
+    <value>Sunucu</value>
+  </data>
+  <data name="lblSlogan" xml:space="preserve">
+    <value>Metron Technology</value>
+  </data>
+  <data name="lblSurName" xml:space="preserve">
+    <value>Soyad</value>
+  </data>
+  <data name="lblTelegramContact" xml:space="preserve">
+    <value>Telegram Bilgisi</value>
+  </data>
+  <data name="lblTelegramDetail" xml:space="preserve">
+    <value>Telegram Hesap Detayı</value>
+  </data>
+  <data name="lblTgForAllPlants" xml:space="preserve">
+    <value>Telegram Hesapları</value>
+  </data>
+  <data name="lblTitle" xml:space="preserve">
+    <value>Ünvan</value>
+  </data>
+  <data name="lblTown" xml:space="preserve">
+    <value>İlçe</value>
+  </data>
+  <data name="lblTransfers" xml:space="preserve">
+    <value>TRANSFERLER</value>
+  </data>
+  <data name="lblUpdateCompany" xml:space="preserve">
+    <value>Firma Güncelle</value>
+  </data>
+  <data name="lblUpdateConnection" xml:space="preserve">
+    <value>Bağlantı Düzenle</value>
+  </data>
+  <data name="lblUpdatePlant" xml:space="preserve">
+    <value>Tesis Güncelle</value>
+  </data>
+  <data name="lblUpdateUserAuthority" xml:space="preserve">
+    <value>Kullanıcı Yetkileri</value>
+  </data>
+  <data name="lblUser" xml:space="preserve">
+    <value>Kullanıcı</value>
+  </data>
+  <data name="lblUserList" xml:space="preserve">
+    <value>Kullanıcı Listesi</value>
+  </data>
+  <data name="lblUserName" xml:space="preserve">
+    <value>Kullanıcı Adı</value>
+  </data>
+  <data name="lblUsers" xml:space="preserve">
+    <value>Yeni Kullanıcı</value>
+  </data>
+  <data name="lblWebApiBaseUrl" xml:space="preserve">
+    <value>API Uç Noktası</value>
+  </data>
+  <data name="lblWelcome" xml:space="preserve">
+    <value>Hoşgeldiniz</value>
+  </data>
+  <data name="lblZipCode" xml:space="preserve">
+    <value>Posta Kodu</value>
+  </data>
+  <data name="msgAuthority" xml:space="preserve">
+    <value>Yetki Yok</value>
+  </data>
+  <data name="msgMessage" xml:space="preserve">
+    <value>Mesaj</value>
+  </data>
+  <data name="msgSource" xml:space="preserve">
+    <value>Kaynak</value>
+  </data>
+</root>
