@@ -1,5 +1,6 @@
 ﻿using FreeCourse.Mvc.Web.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using System.Diagnostics;
 
 namespace FreeCourse.Mvc.Web.Controllers
@@ -7,10 +8,11 @@ namespace FreeCourse.Mvc.Web.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IOptions<ServiceApiSettings> _serviceApiSettings;
+        public HomeController(ILogger<HomeController> logger, IOptions<ServiceApiSettings> serviceApiSettings)
         {
             _logger = logger;
+            _serviceApiSettings = serviceApiSettings;
         }
 
         [HttpGet]

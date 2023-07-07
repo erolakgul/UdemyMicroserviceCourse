@@ -1,9 +1,14 @@
+using FreeCourse.Mvc.Web.Models;
 using FreeCourse.Mvc.Web.Resources;
 using Microsoft.Extensions.Options;
 using System.Globalization;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
+
+#region uygulama ayaða kalkarken settings dosyasýndaki karþýklarý class a aktaracak
+builder.Services.Configure<ServiceApiSettings>(builder.Configuration.GetSection("ServiceApiSettings"));
+#endregion
 
 // Add services to the container.
 //builder.Services.AddControllersWithViews();
