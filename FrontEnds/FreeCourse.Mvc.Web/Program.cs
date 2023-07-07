@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 #region uygulama ayaða kalkarken settings dosyasýndaki karþýklarý class a aktaracak
 builder.Services.Configure<ServiceApiSettings>(builder.Configuration.GetSection("ServiceApiSettings"));
+builder.Services.Configure<ClientSettings>(builder.Configuration.GetSection("ClientSettings"));
 #endregion
 
 // Add services to the container.
