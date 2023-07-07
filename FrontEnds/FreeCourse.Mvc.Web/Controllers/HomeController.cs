@@ -9,9 +9,10 @@ namespace FreeCourse.Mvc.Web.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IOptions<ServiceApiSettings> _serviceApiSettings;
-        private readonly IOptions<ClientSettings> _clientSettings;
-        public HomeController(ILogger<HomeController> logger, IOptions<ServiceApiSettings> serviceApiSettings, IOptions<ClientSettings> clientSettings)
+        private readonly ServiceApiSettings _serviceApiSettings;
+        private readonly ClientSettings _clientSettings;
+        public HomeController(ILogger<HomeController> logger, ServiceApiSettings serviceApiSettings, 
+             ClientSettings clientSettings)
         {
             _logger = logger;
             _serviceApiSettings = serviceApiSettings;
