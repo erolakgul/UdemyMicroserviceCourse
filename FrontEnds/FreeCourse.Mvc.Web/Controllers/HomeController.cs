@@ -1,4 +1,5 @@
 ﻿using FreeCourse.Mvc.Web.Models;
+using FreeCourse.Mvc.Web.Models.Configurations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using System.Diagnostics;

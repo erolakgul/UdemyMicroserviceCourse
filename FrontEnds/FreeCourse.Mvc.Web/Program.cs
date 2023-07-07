@@ -1,4 +1,4 @@
-using FreeCourse.Mvc.Web.Models;
+using FreeCourse.Mvc.Web.Models.Configurations;
 using FreeCourse.Mvc.Web.Resources;
 using Microsoft.Extensions.Options;
 using System.Globalization;

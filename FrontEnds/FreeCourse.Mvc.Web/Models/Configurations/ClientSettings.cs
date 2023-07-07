@@ -1,4 +1,4 @@
-﻿namespace FreeCourse.Mvc.Web.Models
+﻿namespace FreeCourse.Mvc.Web.Models.Configurations
 {
     public class ClientSettings
     {
