@@ -8,13 +8,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 #region uygulama ayaða kalkarken settings dosyasýndaki karþýklarý class a aktaracak
 builder.Services.Configure<ServiceApiSettings>(builder.Configuration.GetSection("ServiceApiSettings"));
-builder.Services.Configure<ClientSettings>(builder.Configuration.GetSection("ClientSettings"));
-
 builder.Services.AddScoped<ServiceApiSettings>(opt =>
 {
     var di = opt.GetRequiredService<IOptions<ServiceApiSettings>>();
     return di.Value;
 });
+
+builder.Services.Configure<ClientSettings>(builder.Configuration.GetSection("ClientSettings"));
 builder.Services.AddScoped<ClientSettings>(opt =>
 {
     var di = opt.GetRequiredService<IOptions<ClientSettings>>();
