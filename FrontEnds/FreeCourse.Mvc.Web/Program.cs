@@ -1,4 +1,5 @@
 using FreeCourse.Mvc.Web.Services.Extentions;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +14,14 @@ builder.Services.AddCustomAppSettingsConfigure(builder);
 
 #region localization datanotation
 builder.Services.AddCustomLocalizationConfigure();
+#endregion
+
+#region view
+builder.Services.AddControllersWithViews();
+#endregion
+
+#region authentication
+builder.Services.AddCustomAuthConfigure();
 #endregion
 
 #region razor
@@ -40,9 +49,11 @@ app.UseRouting();
 
 #region localization
 var getRequiredLocalizationOptionService = app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>();
-app.UseRequestLocalization(getRequiredLocalizationOptionService.Value); 
+app.UseRequestLocalization(getRequiredLocalizationOptionService.Value);
 #endregion
 
+
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
