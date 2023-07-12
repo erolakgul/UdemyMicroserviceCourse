@@ -1,0 +1,46 @@
+﻿@model SigninInput;
+@inject ISharedViewLocalizer _localizer;
+
+@{
+    ViewData["Title"] = "SignIn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">@_localizer["login-title"]</h5>
+
+                <form method="post" asp-action="SignIn" asp-controller="Auth">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="mb-3 ">
+                        <label asp-for="Email" class="control-label"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span class="text-danger field-validation-valid" asp-validation-for="Email"></span>
+                    </div>
+                    <div class="mb-3 ">
+                        <label asp-for="Password" class="control-label"></label>
+                        <input asp-for="Password" class="form-control" />
+                        <span class="text-danger field-validation-valid" asp-validation-for="Password"></span>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="@_localizer["btnLogin"]" class="btn btn-primary" />
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section scripts{
+    <partial name="_validationscriptspartial" />
+}

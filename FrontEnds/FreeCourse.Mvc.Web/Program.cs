@@ -29,6 +29,7 @@ builder.Services.AddScoped<ClientSettings>(opt =>
 builder.Services.AddTransient<ISharedViewLocalizer, SharedViewLocalizer>();
 
 builder.Services.AddControllersWithViews()
+/*uses to make a change in Razor take effect immediately.*/
     .AddViewLocalization(options => options.ResourcesPath = "Resources")
     .AddDataAnnotationsLocalization(opts =>
     {
@@ -37,8 +38,9 @@ builder.Services.AddControllersWithViews()
             var assemblyName = new AssemblyName(typeof(SharedResource).GetTypeInfo().Assembly.FullName!);
             return factory.Create(nameof(SharedResource), assemblyName.Name!);
         };
-    }); 
+    });
 #endregion
+
 
 builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
@@ -51,6 +53,15 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
     options.SupportedCultures = cultures;
     options.SupportedUICultures = cultures;
 });
+
+#region razor
+var mvcBuilder = builder.Services.AddRazorPages();
+
+if (builder.Environment.IsDevelopment())
+{
+    mvcBuilder.AddRazorRuntimeCompilation();
+}
+#endregion
 
 //////////////////////////////////////////// middleware ///////////////////////////////////
 

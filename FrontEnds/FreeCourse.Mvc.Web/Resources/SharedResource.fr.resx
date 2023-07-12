@@ -447,6 +447,9 @@
   <data name="lblZipCode" xml:space="preserve">
     <value>Code Postal</value>
   </data>
+  <data name="login-title" xml:space="preserve">
+    <value>Identifiant</value>
+  </data>
   <data name="msgAuthority" xml:space="preserve">
     <value>Vous n'êtes pas autorisé</value>
   </data>
