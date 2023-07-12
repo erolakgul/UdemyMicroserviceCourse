@@ -29,17 +29,17 @@ namespace FreeCourse.Mvc.Web.Services
             _clientSettings = clientSettings.Value;
         }
 
-        public Task<TokenResponse> GetAccessTokenByRefreshToken()
+        public Task<TokenResponse> GetAccessTokenByRefreshTokenAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Task RevokeRefreshToken()
+        public Task RevokeRefreshTokenAsync()
         {
             throw new NotImplementedException();
         }
 
-        public async Task<Response<bool>> SignIn(SigninInput signinInput)
+        public async Task<Response<bool>> SignInAsync(SigninInput signinInput)
         {
             #region identityserver daki tüm endpointleri çek
             //IdentityModel paketinde extention olarak tanımlı olduğu için GetDiscoveryDocumentAsync methodu httpclient için gelir

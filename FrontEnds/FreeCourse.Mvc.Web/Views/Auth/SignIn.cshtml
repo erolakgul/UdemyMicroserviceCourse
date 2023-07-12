@@ -13,7 +13,10 @@
                 <h5 class="card-title">@_localizer["login-title"]</h5>
 
                 <form method="post" asp-action="SignIn" asp-controller="Auth">
+                    <!-- server dan dönen modelstate hataları gösterilir-->
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <!-- son -->
+
                     <div class="mb-3 ">
                         <label asp-for="Email" class="control-label"></label>
                         <input asp-for="Email" class="form-control" />
