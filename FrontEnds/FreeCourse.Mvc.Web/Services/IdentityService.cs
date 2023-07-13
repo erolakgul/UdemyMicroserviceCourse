@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+using NuGet.Common;
 using System.Globalization;
 using System.Security.Claims;
 using System.Text.Json;
@@ -29,9 +30,78 @@ namespace FreeCourse.Mvc.Web.Services
             _clientSettings = clientSettings.Value;
         }
 
-        public Task<TokenResponse> GetAccessTokenByRefreshTokenAsync()
+        public async Task<TokenResponse> GetAccessTokenByRefreshTokenAsync()
         {
-            throw new NotImplementedException();
+            #region identityserver daki tüm endpointleri çek
+            //IdentityModel paketinde extention olarak tanımlı olduğu için GetDiscoveryDocumentAsync methodu httpclient için gelir
+            var discovery = await _httpClient.GetDiscoveryDocumentAsync(
+                   new DiscoveryDocumentRequest
+                   {
+                       Address = _serviceApiSettings.BaseUri,
+                       Policy = new DiscoveryPolicy { RequireHttps = false } // https ları kapattığımız için
+                   }
+                );
+            // discovery altına userinfo gibi token endpoint gibi url ler geliyor olacak 
+            if (discovery.IsError)
+            {
+                throw discovery.Exception; // hata varsa fırlat
+            }
+            #endregion
+
+            #region refreshtoken cookie den okunur ve yeni bir token almak için kullanılır
+            var refreshToken = await _httpContextAccessor.HttpContext.GetTokenAsync(
+                      OpenIdConnectParameterNames.RefreshToken
+                                                        );
+            RefreshTokenRequest refreshTokenRequest = new()
+            {
+                ClientId = _clientSettings.WebResourceOwner.ClientId,
+                ClientSecret = _clientSettings.WebResourceOwner.ClientSecret,
+                RefreshToken = refreshToken,
+                Address = discovery.TokenEndpoint
+            };
+
+            // refresh token da yeni bir token alıyoruz
+            var newtoken = await _httpClient.RequestRefreshTokenAsync(refreshTokenRequest);
+
+            if (newtoken.IsError)
+            {
+                return null;
+            }
+
+            // herşey ok ise
+            //authentication token bilgisini de yeniliyoruz
+            var authenticationNewToken =
+                           new List<AuthenticationToken>()
+                           {
+                               // openId protokolünü kullanacağız
+                               new AuthenticationToken {
+                                                        Name = OpenIdConnectParameterNames.AccessToken
+                                                        , Value = newtoken.AccessToken
+                                                       }
+                               ,  new AuthenticationToken {
+                                                        Name = OpenIdConnectParameterNames.RefreshToken
+                                                        , Value = newtoken.RefreshToken
+                                                       }
+                               ,  new AuthenticationToken {
+                                                        Name = OpenIdConnectParameterNames.ExpiresIn
+                                                        , Value = DateTime.Now.AddSeconds(newtoken.ExpiresIn)
+                                                        .ToString("o",CultureInfo.InvariantCulture) // herhangi bir culture  bilgisine bağımlı olmadan
+                                                       }
+                           };
+
+            // var olan authenticated bilgilerini çekiyoruz
+            var authenticationResult = await _httpContextAccessor.HttpContext.AuthenticateAsync();
+
+            // token bilgisini değiştiriyoruz
+            var properties = authenticationResult.Properties;
+            properties.StoreTokens(authenticationNewToken);
+            // ve cookie yi güncelliyoruz
+            await _httpContextAccessor.HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
+                authenticationResult.Principal,properties);
+
+            #endregion
+
+            return newtoken;
         }
 
         public Task RevokeRefreshTokenAsync()
@@ -119,7 +189,7 @@ namespace FreeCourse.Mvc.Web.Services
                            {
                                // openId protokolünü kullanacağız
                                new AuthenticationToken {
-                                                        Name = OpenIdConnectParameterNames.AccessToken 
+                                                        Name = OpenIdConnectParameterNames.AccessToken
                                                         , Value = token.AccessToken
                                                        }
                                ,  new AuthenticationToken {
