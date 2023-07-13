@@ -5,7 +5,7 @@ using Microsoft.Extensions.Options;
 var builder = WebApplication.CreateBuilder(args);
 
 #region http context
-builder.Services.AddCustomHttpConfigure();
+builder.Services.AddCustomHttpConfigure(builder);
 #endregion
 
 #region uygulama ayaða kalkarken settings dosyasýndaki karþýklarý class a aktaracak

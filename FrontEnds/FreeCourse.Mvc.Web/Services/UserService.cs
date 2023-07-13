@@ -1,14 +1,21 @@
 ﻿using FreeCourse.Mvc.Web.Models.Poco;
+using FreeCourse.Mvc.Web.Models.UriEnums;
 using FreeCourse.Mvc.Web.Services.Interfaces;
 
 namespace FreeCourse.Mvc.Web.Services
 {
     public class UserService : IUserService
     {
+        private readonly HttpClient _httpClient;
 
-        public Task<UserViewModel> GetUser()
+        public UserService(HttpClient httpClient)
         {
-            throw new NotImplementedException();
+            _httpClient = httpClient;
+        }
+
+        public async Task<UserViewModel> GetUser()
+        {
+            return await _httpClient.GetFromJsonAsync<UserViewModel>(IdentityUriDefaults.api_user_getuser);
         }
     }
 }
