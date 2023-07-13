@@ -47,7 +47,7 @@ namespace FreeCourse.Mvc.Web.Services
                 throw discovery.Exception; // hata varsa fırlat
             }
             #endregion
-
+             
             #region refreshtoken cookie den okunur ve yeni bir token almak için kullanılır
             var refreshToken = await _httpContextAccessor.HttpContext.GetTokenAsync(
                       OpenIdConnectParameterNames.RefreshToken
