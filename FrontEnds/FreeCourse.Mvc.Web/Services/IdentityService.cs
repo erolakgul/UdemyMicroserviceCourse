@@ -47,7 +47,7 @@ namespace FreeCourse.Mvc.Web.Services
                 throw discovery.Exception; // hata varsa fırlat
             }
             #endregion
-             
+
             #region refreshtoken cookie den okunur ve yeni bir token almak için kullanılır
             var refreshToken = await _httpContextAccessor.HttpContext.GetTokenAsync(
                       OpenIdConnectParameterNames.RefreshToken
@@ -97,15 +97,47 @@ namespace FreeCourse.Mvc.Web.Services
             properties.StoreTokens(authenticationNewToken);
             // ve cookie yi güncelliyoruz
             await _httpContextAccessor.HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
-                authenticationResult.Principal,properties);
+                authenticationResult.Principal, properties);
 
             #endregion
 
             return newtoken;
         }
 
-        public Task RevokeRefreshTokenAsync()
+        public async Task RevokeRefreshTokenAsync()
         {
+            #region identityserver daki tüm endpointleri çek
+            //IdentityModel paketinde extention olarak tanımlı olduğu için GetDiscoveryDocumentAsync methodu httpclient için gelir
+            var discovery = await _httpClient.GetDiscoveryDocumentAsync(
+                   new DiscoveryDocumentRequest
+                   {
+                       Address = _serviceApiSettings.BaseUri,
+                       Policy = new DiscoveryPolicy { RequireHttps = false } // https ları kapattığımız için
+                   }
+                );
+            // discovery altına userinfo gibi token endpoint gibi url ler geliyor olacak 
+            if (discovery.IsError)
+            {
+                throw discovery.Exception; // hata varsa fırlat
+            }
+            #endregion
+
+
+            #region cookie den  refresh token okunur ve revoke işlemi gerçekleştirilir
+            var refreshToken = await _httpContextAccessor.HttpContext.GetTokenAsync(OpenIdConnectParameterNames.RefreshToken);
+
+            TokenRevocationRequest tokenRevocationRequest = new()
+            {
+                ClientId = _clientSettings.WebResourceOwner.ClientId,
+                ClientSecret = _clientSettings.WebResourceOwner.ClientSecret,
+                Address = discovery.RevocationEndpoint,
+                Token = refreshToken,
+                TokenTypeHint = "refresh_token"
+            };
+
+            await _httpClient.RevokeTokenAsync(tokenRevocationRequest);
+            #endregion
+
             throw new NotImplementedException();
         }
 
