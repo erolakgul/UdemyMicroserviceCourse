@@ -37,7 +37,7 @@ namespace FreeCourse.Mvc.Web.Services
             var discovery = await _httpClient.GetDiscoveryDocumentAsync(
                    new DiscoveryDocumentRequest
                    {
-                       Address = _serviceApiSettings.BaseUri,
+                       Address = _serviceApiSettings.IdentityBaseUri,
                        Policy = new DiscoveryPolicy { RequireHttps = false } // https ları kapattığımız için
                    }
                 );
@@ -111,7 +111,7 @@ namespace FreeCourse.Mvc.Web.Services
             var discovery = await _httpClient.GetDiscoveryDocumentAsync(
                    new DiscoveryDocumentRequest
                    {
-                       Address = _serviceApiSettings.BaseUri,
+                       Address = _serviceApiSettings.IdentityBaseUri,
                        Policy = new DiscoveryPolicy { RequireHttps = false } // https ları kapattığımız için
                    }
                 );
@@ -148,7 +148,7 @@ namespace FreeCourse.Mvc.Web.Services
             var discovery = await _httpClient.GetDiscoveryDocumentAsync(
                    new DiscoveryDocumentRequest
                    {
-                       Address = _serviceApiSettings.BaseUri,
+                       Address = _serviceApiSettings.IdentityBaseUri,
                        Policy = new DiscoveryPolicy { RequireHttps = false } // https ları kapattığımız için
                    }
                 );

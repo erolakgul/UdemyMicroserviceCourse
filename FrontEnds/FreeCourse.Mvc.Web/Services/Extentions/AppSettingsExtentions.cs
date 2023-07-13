@@ -7,7 +7,9 @@ namespace FreeCourse.Mvc.Web.Services.Extentions
     {
         public static IServiceCollection AddCustomAppSettingsConfigure(this IServiceCollection services,WebApplicationBuilder builder)
         {
+            // settings dosyasındaki tree class a configre edildi - match edildi
             services.Configure<ServiceApiSettings>(builder.Configuration.GetSection("ServiceApiSettings"));
+            // ilgili class çağırıldığında direkt olarak verilerine erişim olması için value döndürüldü
             services.AddScoped<ServiceApiSettings>(opt =>
             {
                 var di = opt.GetRequiredService<IOptions<ServiceApiSettings>>();
