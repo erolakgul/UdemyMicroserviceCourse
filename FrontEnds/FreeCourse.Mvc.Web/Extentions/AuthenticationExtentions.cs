@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication.Cookies;
 
-namespace FreeCourse.Mvc.Web.Services.Extentions
+namespace FreeCourse.Mvc.Web.Extentions
 {
     public static class AuthenticationExtentions
     {

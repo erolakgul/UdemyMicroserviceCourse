@@ -1,4 +1,4 @@
-using FreeCourse.Mvc.Web.Services.Extentions;
+using FreeCourse.Mvc.Web.Extentions;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.Options;
 

@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Reflection;
 
-namespace FreeCourse.Mvc.Web.Services.Extentions
+namespace FreeCourse.Mvc.Web.Extentions
 {
     public static class LocalizationExtentions
     {
