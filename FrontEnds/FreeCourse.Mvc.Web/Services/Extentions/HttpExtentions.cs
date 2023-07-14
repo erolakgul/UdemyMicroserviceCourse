@@ -1,4 +1,5 @@
-﻿using FreeCourse.Mvc.Web.Models.Configurations;
+﻿using FreeCourse.Mvc.Web.Handlers;
+using FreeCourse.Mvc.Web.Models.Configurations;
 using FreeCourse.Mvc.Web.Services.Interfaces;
 
 namespace FreeCourse.Mvc.Web.Services.Extentions
@@ -24,7 +25,7 @@ namespace FreeCourse.Mvc.Web.Services.Extentions
             services.AddHttpClient<IUserService, UserService>(opt =>
             {
                 opt.BaseAddress = new Uri(serviceApiSettings.IdentityBaseUri);
-            });
+            }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
 
             return services;
         }
