@@ -12,6 +12,8 @@ namespace FreeCourse.Mvc.Web.Extentions
         {
             // httpcontextaccessor ı kullanabilmek için service di ya ekliyoruz
             services.AddHttpContextAccessor();
+            // service lere handler eklenir
+            services.AddScoped<ResourceOwnerPasswordTokenHandler>();
 
             // settings dosyasındaki veri class nesnesine dönüştürülür
             var serviceApiSettings = builder.Configuration.GetSection("ServiceApiSettings").Get<ServiceApiSettings>();
