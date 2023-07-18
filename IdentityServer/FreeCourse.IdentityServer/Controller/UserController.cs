@@ -42,6 +42,10 @@ namespace FreeCourse.IdentityServer.Controller
             return NoContent();
         }
 
+        /// <summary>
+        /// kullanıcı bilgileri api/user/getuser ile talep eden client a sunulur
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> GetUser()
         {
