@@ -1,5 +1,7 @@
 ﻿using FreeCourse.Mvc.Web.Models;
 using FreeCourse.Mvc.Web.Services.Interfaces;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FreeCourse.Mvc.Web.Controllers
@@ -12,7 +14,7 @@ namespace FreeCourse.Mvc.Web.Controllers
             _identityService = identityService;
         }
 
-        [HttpGet]   
+        [HttpGet]
         public IActionResult SignIn()
         {
             return View();
@@ -22,7 +24,7 @@ namespace FreeCourse.Mvc.Web.Controllers
         public async Task<IActionResult> SignIn(SigninInput signinInput)
         {
             #region null check
-            ArgumentNullException.ThrowIfNull(signinInput); 
+            ArgumentNullException.ThrowIfNull(signinInput);
             #endregion
 
             var response = await _identityService.SignInAsync(signinInput);
@@ -38,5 +40,18 @@ namespace FreeCourse.Mvc.Web.Controllers
 
             return RedirectToAction(nameof(Index), "Home");
         }
+
+
+        [HttpGet]
+        public async Task<IActionResult> LogOut()
+        {
+            //cookie silinir
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            //refresh token revoke edilir
+            await _identityService.RevokeRefreshTokenAsync();
+
+            return RedirectToAction(nameof(HomeController.Index), "Home");
+        }
+
     }
 }
