@@ -1,4 +1,4 @@
-﻿using FreeCourse.Mvc.Web.Models.Poco;
+﻿using FreeCourse.Mvc.Web.Models.ViewModel.Identity;
 
 namespace FreeCourse.Mvc.Web.Services.Interfaces
 {

@@ -1,4 +1,4 @@
-﻿namespace FreeCourse.Mvc.Web.Models.Poco
+﻿namespace FreeCourse.Mvc.Web.Models.ViewModel.Identity
 {
     public class UserViewModel
     {
@@ -7,7 +7,7 @@
         public string? Email { get; set; }
         public string? City { get; set; }
 
-        public IEnumerable<string> GetUserProps() 
+        public IEnumerable<string> GetUserProps()
         {
             yield return UserName;
             yield return Email;

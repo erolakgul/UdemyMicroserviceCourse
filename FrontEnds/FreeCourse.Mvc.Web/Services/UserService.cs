@@ -1,5 +1,5 @@
-﻿using FreeCourse.Mvc.Web.Models.Poco;
-using FreeCourse.Mvc.Web.Models.UriEnums;
+﻿using FreeCourse.Mvc.Web.Models.UriEnums;
+using FreeCourse.Mvc.Web.Models.ViewModel.Identity;
 using FreeCourse.Mvc.Web.Services.Interfaces;
 
 namespace FreeCourse.Mvc.Web.Services
