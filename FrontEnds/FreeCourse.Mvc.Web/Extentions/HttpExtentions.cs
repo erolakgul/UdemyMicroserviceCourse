@@ -14,6 +14,7 @@ namespace FreeCourse.Mvc.Web.Extentions
             services.AddHttpContextAccessor();
             // service lere handler eklenir
             services.AddScoped<ResourceOwnerPasswordTokenHandler>();
+            services.AddScoped<ClientCredentialTokenHandler>();
 
             // settings dosyasındaki veri class nesnesine dönüştürülür
             var serviceApiSettings = builder.Configuration.GetSection("ServiceApiSettings").Get<ServiceApiSettings>();
@@ -29,6 +30,13 @@ namespace FreeCourse.Mvc.Web.Extentions
             {
                 opt.BaseAddress = new Uri(serviceApiSettings.IdentityBaseUri);
             }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
+
+            // ICatalogService interface i altında kullanılan httpclient nesnesinin verileri burada değiştirilir
+            services.AddHttpClient<ICatalogService, CatalogService>(opt =>
+            {
+                //// gateway api yönlendirmeyi catalog api ye yapacak
+                opt.BaseAddress = new Uri($"{serviceApiSettings.GatewayBaseUri}/{serviceApiSettings.Catalog.Path}"); 
+            }).AddHttpMessageHandler<ClientCredentialTokenHandler>();
 
             return services;
         }
