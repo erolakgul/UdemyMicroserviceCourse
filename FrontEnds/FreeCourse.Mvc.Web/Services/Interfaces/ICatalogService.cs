@@ -4,6 +4,7 @@ namespace FreeCourse.Mvc.Web.Services.Interfaces
 {
     public interface ICatalogService
     {
+        Task<List<CategoryViewModel>> GetAllCategoryAsync();
         Task<List<CourseViewModel>> GetAllCourseAsync();
         Task<List<CourseViewModel>> GetAllCourseByUserIdAsync(string userId);
         Task<CourseViewModel> GetByCourseIdAsync(string courseId);
